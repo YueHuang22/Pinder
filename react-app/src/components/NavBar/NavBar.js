@@ -37,7 +37,7 @@ const NavBar = () => {
       {user && (
         <div className='nav-right-div'>
           <div className='nav-login-div'>
-            Hi, {user?.username}!
+            Hi, {user?.firstName}!
           </div>
           <div className='nav-login-div'>
             <LogoutButton />
