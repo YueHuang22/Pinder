@@ -1,6 +1,5 @@
 import React from "react";
 import { useHistory, } from "react-router-dom";
-import Footer from "../Footer";
 import "./HomePage.css";
 
 
@@ -80,7 +79,6 @@ function HomePage() {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     );
 }

@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
-import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+import LoginForm from './components/Auth/LoginForm';
+import SignUpForm from './components/Auth/SignUpForm';
+import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer';
+import ProtectedRoute from './components/Auth/ProtectedRoute';
 import HomePage from "./components/HomePage";
 import AllDogPage from './components/AllDogPage';
-import FriendsPage from './components/FriendsPage';
 import { authenticate } from './store/session';
 
 function App() {
@@ -37,22 +35,14 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
         <ProtectedRoute path='/dogs' exact={true} >
           <AllDogPage />
-        </ProtectedRoute>
-        <ProtectedRoute path='/friends' exact={true} >
-          <FriendsPage />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <HomePage />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

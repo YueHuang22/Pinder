@@ -1,0 +1,41 @@
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Graphik Meetup, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.nav-logo-div {
+    margin-left: 25px;
+    margin-top: 10px;
+}
+
+.nav-logo {
+    width: 200px;
+    height: 65px;
+    cursor: pointer;
+}
+
+.nav-right-div {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    margin-right: 40px;
+    text-decoration: none;
+    color: #f47650;
+    font-size: 17px;
+    font-weight: 550;
+}
+
+.nav-link:hover {
+    color: #FFC49D
+}
+
+.nav-login-div {
+    margin-right: 40px;
+    color: #f47650;
+    font-size: 17px;
+    font-weight: 550;
+}
