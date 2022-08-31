@@ -1,0 +1,58 @@
+.footer-container {
+    width: 100%;
+    height: 160px;
+    margin-top: 3rem;
+    background-color: #ECE9E6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 0;
+    font-family: Graphik Meetup, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.footer-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 20px;
+    gap: 1rem;
+    width: 50%;
+}
+
+.footer-disclaimer {
+    color: #383539;
+    font-size: 0.85rem;
+}
+
+.dashboard-footer-connect {
+    color: #2B292E;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-top: 0px;
+    margin-bottom: 0.5rem;
+}
+
+.footer-linkedin {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.footer-linkedin-icons-container {
+    display: flex;
+    gap: 2rem;
+    margin-left: 15px;
+}
+
+.footer-linkedin-icons-container .fa-linkedin {
+    font-size: 30px;
+    color: rgb(162, 162, 162);
+}
+
+.footer-linkedin-icons-container .fa-linkedin:hover {
+    color: #0D65C2;
+    cursor: pointer;
+}
