@@ -49,9 +49,9 @@ function App() {
         <ProtectedRoute path='/friends' exact={true} >
           <FriendsPage />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <Route path='/' exact={true} >
           <HomePage />
-        </ProtectedRoute>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
