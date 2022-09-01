@@ -13,7 +13,7 @@ function HomePage() {
     }
 
     function viewPlaydates() {
-        history.push('/dogs');
+        history.push('/users/:userId/playdates');
     }
 
     function signUp() {

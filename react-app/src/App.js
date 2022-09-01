@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import SignUpForm from './components/Auth/SignUpForm';
+import { authenticate } from './store/session';
+import { Modal } from './context/Modal';
+import ProtectedRoute from './components/Auth/ProtectedRoute';
+import SignUpForm from './components/SignUpModal/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer';
-import ProtectedRoute from './components/Auth/ProtectedRoute';
+import LoginForm from './components/LoginModal/LoginForm';
 import HomePage from "./components/HomePage";
-import AllDogPage from './components/AllDogPage';
-import LoginModal from './components/LoginModal';
-import { authenticate } from './store/session';
+import AllDogsPage from './components/AllDogsPage';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -30,13 +32,20 @@ function App() {
       <NavBar />
       <Switch>
         <Route path='/sign-up' exact={true}>
-          <SignUpForm />
+          <Modal>
+            <SignUpForm />
+          </Modal>
         </Route>
         <Route path='/login' exact={true}>
-          <LoginModal />
+          <Modal>
+            <LoginForm />
+          </Modal>
         </Route>
         <ProtectedRoute path='/dogs' exact={true} >
-          <AllDogPage />
+          <AllDogsPage />
+        </ProtectedRoute >
+        <ProtectedRoute path='/users/:userId/playdates' exact={true}>
+
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <HomePage />

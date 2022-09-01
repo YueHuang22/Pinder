@@ -33,8 +33,9 @@ def password_length(form, field):
 
 def is_img(form, field):
     image_url = field.data
-    if ('.jpg'not in image_url) and ('.jpeg'not in image_url) and ('.png'not in image_url) and ('.webp'not in image_url) and ('.gif'not in image_url) and ('.svg' not in image_url):
-        raise ValidationError("Invalid image URL.")
+    if (image_url):
+        if ('.jpg'not in image_url) and ('.jpeg'not in image_url) and ('.png'not in image_url) and ('.webp'not in image_url) and ('.gif'not in image_url) and ('.svg' not in image_url):
+            raise ValidationError("Invalid image URL.")
 
 
 class SignUpForm(FlaskForm):
