@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/Auth/LoginForm';
 import SignUpForm from './components/Auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/Auth/ProtectedRoute';
 import HomePage from "./components/HomePage";
 import AllDogPage from './components/AllDogPage';
+import LoginModal from './components/LoginModal';
 import { authenticate } from './store/session';
 
 function App() {
@@ -29,11 +29,11 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
+        </Route>
+        <Route path='/login' exact={true}>
+          <LoginModal />
         </Route>
         <ProtectedRoute path='/dogs' exact={true} >
           <AllDogPage />
