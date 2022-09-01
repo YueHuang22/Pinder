@@ -1,7 +1,6 @@
 const LOAD_DOGS = "dog/LOAD_DOGS";
 
 // Actions
-
 const loadAllDogs = (dogs) => ({
     type: LOAD_DOGS,
     payload: dogs,
@@ -9,7 +8,6 @@ const loadAllDogs = (dogs) => ({
 
 
 // Thunks
-
 export const loadDogs = () => async (dispatch) => {
     const response = await fetch("/api/dogs");
     if (response.ok) {
