@@ -21,14 +21,6 @@
     align-items: center;
 }
 
-.nav-link {
-    margin-right: 40px;
-    text-decoration: none;
-    color: #f47650;
-    font-size: 17px;
-    font-weight: 550;
-}
-
 .nav-link:hover {
     color: #FFC49D
 }

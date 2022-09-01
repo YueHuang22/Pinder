@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { loadDogs, } from "../../store/dog";
+import "./AllDogsPage.css";
 
-import {
-    loadDogs,
-} from "../../store/dog";
-import "./AllDogPage.css";
-
-function AllDogPage() {
+function AllDogsPage() {
     const dispatch = useDispatch()
     const history = useHistory()
     const dogs = useSelector(state => state.dog.dogs);
@@ -106,4 +103,4 @@ function AllDogPage() {
     );
 }
 
-export default AllDogPage;
+export default AllDogsPage;

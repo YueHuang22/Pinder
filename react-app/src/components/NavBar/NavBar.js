@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import LoginModal from '../LoginModal';
+import SignUpModal from '../SignUpModal/SignUpModal';
 import LogoutButton from '../Auth/LogoutButton';
 import "./NavBar.css";
 
@@ -26,9 +27,7 @@ const NavBar = () => {
             <LoginModal />
           </div>
           <div>
-            <NavLink to='/sign-up' exact={true} activeClassName='active' className='nav-link'>
-              Sign Up
-            </NavLink>
+            <SignUpModal />
           </div>
         </div>
       )}

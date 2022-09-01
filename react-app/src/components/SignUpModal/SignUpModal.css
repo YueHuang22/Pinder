@@ -1,4 +1,4 @@
-.login-button {
+.signup-button {
     margin-right: 40px;
     border: none;
     color: #f47650;
@@ -9,41 +9,41 @@
     font-family: Graphik Meetup, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
 }
 
-.login-button:hover {
+.signup-button:hover {
     color: #FFC49D
 }
 
-.login-form-container {
+.signup-form-container {
     font-family: Graphik Meetup, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
     color: #f47650;
 }
 
-.login-form {
-    height: 400px;
-    width: 400px;
+.signup-form {
+    height: 800px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
-.login-errors {
+.signup-errors {
     font-size: .975rem;
     font-style: normal;
     line-height: 20px;
     letter-spacing: 0;
     font-weight: 500;
     color: #f47650;
-    margin-left: 10%;
+    margin-left: 20%;
 }
 
-.login-form-title {
-    margin-left: 10%;
-    font-size: 15px;
-    font-weight: bold;
+.signup-form-title {
+    margin-left: 20%;
+    font-size: 13px;
+    font-weight: 600;
 }
 
-.login-form-input {
-    margin-left: 10%;
+.signup-form-input {
+    margin-left: 20%;
     width: 300px;
     height: 40px;
     border-radius: 5px;
@@ -52,16 +52,16 @@
     border-width: 1px;
 }
 
-.login-form-input:hover {
+.signup-form-input:hover {
     border: 1px solid #31313E;
 }
 
-.login-form-button-container {
+.signup-form-button-container {
     display: flex;
     justify-content: space-evenly;
 }
 
-.login-form-button {
+.signup-form-button {
     border: 1px solid #f47650;
     border-radius: 5px;
     background-color: white;
@@ -71,7 +71,7 @@
     padding: 10px 40px;
 }
 
-.login-form-button:hover {
+.signup-form-button:hover {
     color: #31313E;
     border: 1px solid #31313E;
 }

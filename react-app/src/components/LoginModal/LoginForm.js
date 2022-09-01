@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { login } from '../../store/session';
 import './LoginModal.css'
 
@@ -9,7 +8,6 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
-  const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onLogin = async (e) => {
@@ -36,9 +34,7 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  if (user) {
-    return <Redirect to='/dogs' />;
-  }
+
   return (
     <div className='login-form-container'>
       <form className='login-form' onSubmit={onLogin}>
