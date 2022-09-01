@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import LoginForm from './components/LoginModal/LoginForm';
 import HomePage from "./components/HomePage";
 import AllDogsPage from './components/AllDogsPage';
+import DogDetailPage from './components/DogDetailPage/DogDetailPage';
 
 
 function App() {
@@ -43,6 +44,9 @@ function App() {
         </Route>
         <ProtectedRoute path='/dogs' exact={true} >
           <AllDogsPage />
+        </ProtectedRoute >
+        <ProtectedRoute path='/dogs/:dogId' exact={true} >
+          <DogDetailPage />
         </ProtectedRoute >
         <ProtectedRoute path='/users/:userId/playdates' exact={true}>
 

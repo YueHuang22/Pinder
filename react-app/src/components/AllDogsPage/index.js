@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { loadDogs, } from "../../store/dog";
+import { loadDogs } from "../../store/dog";
 import "./AllDogsPage.css";
 
 function AllDogsPage() {
@@ -11,57 +11,35 @@ function AllDogsPage() {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        dispatch(loadDogs());
+
+        setIsLoaded(false)
+
+        const intializePage = async () => {
+            await dispatch(loadDogs());
+            setIsLoaded(true);
+        };
+
+        intializePage();
+
     }, [dispatch]);
 
     return (
         <>
-
-            <div className="alldog-container">
-
-                <div className="alldog-title">Our dogs</div>
-                <button className="alldog-button">
-                    add a dog
-                </button>
-                <div className="alldog-dogcard">
-                    <div className="alldog-cardimage">
-
-                        <img
-                            className="alldog-dogimage"
-                            alt="⚡"
-                            src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"
-                        ></img>
-                    </div>
-                    <div className="alldog-cardtext">
-                        <div>
-                            Owner: Yue
-                        </div>
-                        <div>
-                            Name: Ollie
-                        </div>
-                        <div>
-                            Gender: Male
-                        </div>
-                        <div>
-                            Weight: 25 lbs
-                        </div>
-                    </div>
-                </div>
-
-
-                <div>
-                    {dogs.map((dog) => {
-                        return (
-                            <>
-                                <div className="alldog-dogcard">
+            {isLoaded && (
+                <div className="alldogs-container">
+                    <div className="alldogs-title">OUR DOGS</div>
+                    <div className="alldogs-card-div">
+                        {dogs.map((dog) => {
+                            return (
+                                <div className="alldog-dogcard" onClick={() => history.push(`/dogs/${dog.id}`)}>
                                     <div className="alldog-cardimage">
-
                                         <img
                                             className="alldog-dogimage"
-                                            alt="⚡"
+                                            alt="dog"
                                             src={dog.imageUrl}
                                         ></img>
                                     </div>
+
                                     <div className="alldog-cardtext">
                                         <div>
                                             Owner: {dog.owner.firstName}
@@ -72,33 +50,29 @@ function AllDogsPage() {
                                         <div>
                                             Gender: {dog.gender}
                                         </div>
+                                        <div>{dog.birthday}</div>
+                                        <div>{dog.breed}</div>
+                                        <div>{dog.description}</div>
+                                        <div>{dog.energyLevel}</div>
+                                        <div>fixed:{dog.fixed}</div>
+                                        <div>{dog.breed}</div>
+                                        <div></div>
                                         <div>
                                             Weight: {dog.weight} lbs
                                         </div>
                                     </div>
                                 </div>
-                                {/* <div className="card" onClick={() => history.push(`/dogs/${dog.id}`)}>
-                                    <div className="cardimg">
-                                        <img alt="" src={dog.imageUrl}></img>
-                                    </div>
+                            );
+                        })}
+                    </div>
 
-                                    <div className="card-content">
-
-                                        <div className="title" key={dog.name} to={`/dogs/${dog.id}`}>{dog.name}
-                                        </div>
-
-                                        <div className="address" >
-                                            {dog.birthday}, {dog.weight}
-                                        </div>
-                                        <div className="card-text">{dog.descrption}</div>
-                                    </div>
-                                </div> */}
-                            </>
-                        );
-                    })}
+                    <div className="alldogs-card-button">
+                        <button className="alldogs-button" onClick={() => history.push('/dogs/new')}>
+                            ADD YOUR DOG
+                        </button>
+                    </div>
                 </div>
-            </div>
-
+            )}
         </>
     );
 }
