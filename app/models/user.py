@@ -1,4 +1,4 @@
-from .db import db
+from app.models.db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
@@ -7,9 +7,15 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(40), nullable=False, unique=True)
+    first_name = db.Column(db.String(20), nullable=False)
+    last_name = db.Column(db.String(20), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    image_url = db.Column(db.String(500), nullable=True)
+    social_url = db.Column(db.String(500), nullable=True)
+
+    dogs = db.relationship(
+        "Dog", back_populates='user', cascade='all, delete')
 
     @property
     def password(self):
@@ -25,6 +31,20 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'username': self.username,
-            'email': self.email
+            'firstName': self.first_name,
+            'lastName': self.last_name,
+            'email': self.email,
+            'imageUrl': self.image_url,
+            'socialUrl': self.social_url,
+            'dogs': [d.to_dict_no_additions() for d in self.dogs]
+        }
+
+    def to_dict_no_additions(self):
+        return {
+            'id': self.id,
+            'firstName': self.first_name,
+            'lastName': self.last_name,
+            'email': self.email,
+            'imageUrl': self.image_url,
+            'socialUrl': self.social_url,
         }
