@@ -27,7 +27,7 @@ function AllDogsPage() {
         <>
             {isLoaded && (
                 <div className="alldogs-container">
-                    <div className="alldogs-title">OUR DOGS</div>
+                    <div className="alldogs-title">FRIENDS TO MEET</div>
                     <div className="alldogs-card-div">
                         {dogs.map((dog) => {
                             return (

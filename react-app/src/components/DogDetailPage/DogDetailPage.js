@@ -84,6 +84,7 @@ function DogDetailPage() {
                             </div>
                         </div>
                         <button className='detail-button' onClick={() => history.push(`/dogs/${dog.id}/edit`)}>Edit</button>
+                        {/* Use EditDogModal, pass in `dog` props */}
                         <button className='detail-button' onClick={deleteClick}>Delete</button>
                     </div>
                 </>
