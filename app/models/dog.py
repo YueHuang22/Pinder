@@ -10,7 +10,7 @@ class Dog(db.Model):
     weight = db.Column(db.Float(precision=2, asdecimal=False), nullable=False)
     breed = db.Column(db.String(50), nullable=False)
     gender = db.Column(db.String(10), nullable=False)
-    fixed = db.Column(db.Boolean, nullable=False)
+    fixed = db.Column(db.String(50), nullable=False)
     energy_level = db.Column(db.String(20), nullable=False)
     description = db.Column(db.String(300), nullable=True)
     image_url = db.Column(db.String(500), nullable=False)

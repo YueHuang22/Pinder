@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { signUp } from '../../store/session';
+import { useHistory } from 'react-router-dom';
 
 const SignUpForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -12,6 +13,7 @@ const SignUpForm = () => {
   const [socialUrl, setsocialUrl] = useState('');
   const [errors, setErrors] = useState([]);
 
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
@@ -21,6 +23,7 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+      history.push('/')
     } else {
       setErrors(["Your password and confirmation password do not match."]);
     }
