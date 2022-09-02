@@ -1,11 +1,14 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory, } from "react-router-dom";
 import "./HomePage.css";
 
 
 function HomePage() {
     const history = useHistory();
-
+    const sessionUser = useSelector((state) => state.session.user);
+    // const userId = sessionUser.id
+    debugger
 
     //onClick fucntions
     function viewDogs() {
@@ -13,7 +16,7 @@ function HomePage() {
     }
 
     function viewPlaydates() {
-        history.push('/users/:userId/playdates');
+        history.push(`/dogs`);
     }
 
     function signUp() {
