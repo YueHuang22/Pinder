@@ -9,7 +9,7 @@ function DogDetailPage() {
     const history = useHistory()
     const { dogId } = useParams();
     const [isLoaded, setIsLoaded] = useState(false);
-
+    //const sessionUser = useSelector((state) => state.session.user);
 
     useEffect(() => {
         setIsLoaded(false)
@@ -83,7 +83,7 @@ function DogDetailPage() {
                                 </div>
                             </div>
                         </div>
-                        <button className='detail-button' onClick={() => history.push(`/dogs/${dog.id}`)}>Edit</button>
+                        <button className='detail-button' onClick={() => history.push(`/dogs/${dog.id}/edit`)}>Edit</button>
                         <button className='detail-button' onClick={deleteClick}>Delete</button>
                     </div>
                 </>

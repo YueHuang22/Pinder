@@ -1,36 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal } from '../../context/Modal';
-import SignUpForm from './SignUpForm';
-import './SignUpModal.css'
+import LoginForm from './LoginForm';
+import './LoginModal.css'
 import { useHistory, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
-const SignUpModal = () => {
+
+
+const LoginModal = () => {
     const history = useHistory();
     const location = useLocation();
     const [showModal, setShowModal] = useState(false);
 
-    useEffect(() => { setShowModal(location.pathname === "/sign-up") }, [location.pathname])
+    useEffect(() => { setShowModal(location.pathname === "/login") }, [location.pathname])
 
 
     return (
         <>
-            <button className='signup-button' onClick={() => {
-                history.push("/sign-up")
+            <button className='login-button' onClick={() => {
+                history.push("/login")
                 setShowModal(true)
             }}>
-                Sign up
+                Log in
             </button>
 
             {showModal && (
                 <Modal onClose={() => {
-                    setShowModal(false)
                     history.push("/")
+                    setShowModal(false)
                 }}>
-                    <SignUpForm />
+                    <LoginForm />
                 </Modal>
             )}
         </>
     );
 }
 
-export default SignUpModal;
+export default LoginModal;

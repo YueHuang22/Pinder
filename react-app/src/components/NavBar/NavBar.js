@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import LoginModal from '../LoginModal';
+import LoginModal from '../LoginModal/LoginModal';
 import SignUpModal from '../SignUpModal/SignUpModal';
 import LogoutButton from '../Auth/LogoutButton';
 import "./NavBar.css";

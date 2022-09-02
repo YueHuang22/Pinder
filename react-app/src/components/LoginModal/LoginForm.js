@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginModal.css'
 
@@ -8,6 +9,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const onLogin = async (e) => {
@@ -15,6 +17,8 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+    } else {
+      history.push('/')
     }
   };
 

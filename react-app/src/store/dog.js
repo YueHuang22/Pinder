@@ -1,7 +1,9 @@
 const LOAD_DOGS = "dog/LOAD_DOGS";
 const CLEAR_CURRENT_DOG = "dog/CLEAR_CURRENT_DOG";
 const SET_CURRENT_DOG = "dog/SET_CURRENT_DOG";
-const DELETE_DOG = "watchlist/DELETE_DOG";
+const CREATE_DOG = "dog/CREATE_DOG";
+const EDIT_DOG = "dog/EDIT_DOG";
+const DELETE_DOG = "dog/DELETE_DOG";
 
 // Actions
 const loadAllDogs = (dogs) => ({
@@ -17,6 +19,16 @@ const unsetCurrentDog = () => ({
 const setCurrentDog = (dog) => ({
     type: SET_CURRENT_DOG,
     payload: dog,
+});
+
+const createDog = (dog) => ({
+    type: CREATE_DOG,
+    payload: dog,
+});
+
+const editDog = (id, dog) => ({
+    type: EDIT_DOG,
+    payload: { id, dog },
 });
 
 const deleteDog = (id) => ({
@@ -51,6 +63,52 @@ export const getDog = (id) => async (dispatch) => {
     } else return;
 };
 
+export const createOneDog = (payload) => async (dispatch) => {
+    const { name, birthday, weight, breed, gender, fixed, energy_level, description, image_url, } = payload;
+    const response = await fetch("/api/dogs", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name, birthday, weight, breed, gender, fixed, energy_level, description, image_url,
+        }),
+    });
+    if (response.ok) {
+        const dog = await response.json();
+        dispatch(createDog(dog));
+        return dog;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
+    }
+};
+
+export const editOneDog = (id, payload) => async (dispatch) => {
+    const response = await fetch(`/api/dogs/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+    });
+    if (response.ok) {
+        const dog = await response.json();
+        dispatch(editDog(id, dog));
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ["An error occurred. Please try again."];
+    }
+};
+
 export const deleteOneDog = (id) => async (dispatch) => {
     const response = await fetch(`/api/dogs/${id}`, {
         method: "DELETE",
@@ -74,6 +132,24 @@ export default function dogRuducer(state = initialState, action) {
             return newState;
         case SET_CURRENT_DOG:
             newState = { ...state, currentDog: action.payload };
+            return newState;
+        case CREATE_DOG:
+            let dogs = state.dogs;
+            newState = { ...state, dogs: [...dogs, action.payload] };
+            return newState;
+        // case EDIT_DOG:
+        //     newState = { ...state, currentDog: action.payload };
+        //     return newState;
+        // case EDIT_GROUP:
+        //     const group = state.find(group => group.id === +action.payload.id)
+        //     newState = [...state]
+        //     newState = newState.filter(f => f !== group)
+        //     newState = [...newState, action.payload.group]
+        //     return newState;
+        case EDIT_DOG:
+            const dog = state.dogs.find(dog => dog.id === +action.payload.id)
+            let newDogs = state.dogs.filter(d => d !== dog)
+            newState = { dogs: newDogs, currentDog: action.payload }
             return newState;
         case DELETE_DOG:
             const dog_to_delete = state.dogs.find(

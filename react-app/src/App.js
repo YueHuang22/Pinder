@@ -11,6 +11,8 @@ import LoginForm from './components/LoginModal/LoginForm';
 import HomePage from "./components/HomePage";
 import AllDogsPage from './components/AllDogsPage';
 import DogDetailPage from './components/DogDetailPage/DogDetailPage';
+import NewDogForm from './components/NewDogForm/NewDogForm';
+import EditDogForm from './components/EditDogForm/EditDogForm';
 
 
 function App() {
@@ -32,26 +34,22 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path='/sign-up' exact={true}>
-          <Modal>
-            <SignUpForm />
-          </Modal>
-        </Route>
-        <Route path='/login' exact={true}>
-          <Modal>
-            <LoginForm />
-          </Modal>
-        </Route>
         <ProtectedRoute path='/dogs' exact={true} >
           <AllDogsPage />
+        </ProtectedRoute >
+        <ProtectedRoute path='/dogs/new' exact={true} >
+          <NewDogForm />
         </ProtectedRoute >
         <ProtectedRoute path='/dogs/:dogId' exact={true} >
           <DogDetailPage />
         </ProtectedRoute >
+        <ProtectedRoute path='/dogs/:dogId/edit' exact={true} >
+          <EditDogForm />
+        </ProtectedRoute >
         <ProtectedRoute path='/users/:userId/playdates' exact={true}>
 
         </ProtectedRoute>
-        <Route path='/' exact={true} >
+        <Route path={['/', '/login', '/sign-up']} exact={true} >
           <HomePage />
         </Route>
       </Switch>
