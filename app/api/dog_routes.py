@@ -35,7 +35,16 @@ def create_dog():
     if form.validate_on_submit():
         data = form.data
         user = current_user
-        new_dog = Dog(name=data['name'], user_id=user.id)
+        new_dog = Dog(name=data['name'],
+                      birthday=data['birthday'],
+                      weight=data['weight'],
+                      breed=data['breed'],
+                      gender=data['gender'],
+                      fixed=data['fixed'],
+                      energy_level=data['energy_level'],
+                      description=data['description'],
+                      image_url=data['image_url'],
+                      owner_id=user.id)
         db.session.add(new_dog)
         db.session.commit()
         return new_dog.to_dict()
@@ -54,6 +63,14 @@ def edit_dog(id):
         data = form.data
         dog = Dog.query.get(id)
         dog.name = data['name']
+        dog.birthday = data['birthday']
+        dog.weight = data['weight']
+        dog.breed = data['breed'],
+        dog.gender = data['gender']
+        dog.fixed = data['fixed']
+        dog.energy_level = data['energy_level']
+        dog.description = data['description']
+        dog.image_url = data['image_url']
         db.session.commit()
         return dog.to_dict()
     else:
