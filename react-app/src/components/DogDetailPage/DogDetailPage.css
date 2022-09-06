@@ -17,3 +17,22 @@
     color: #31313E;
     border: 1px solid #31313E;
 }
+
+.dog-detail-modeal-container {
+    width: 950px;
+    padding: 40px;
+    display: flex;
+}
+
+.dog-detail-modeal-container>div>img {
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+}
+
+.dog-detail-modeal-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 40px;
+}

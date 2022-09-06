@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "indent": ["error", 4],
+    "no-tabs": 0
+  }
+}
