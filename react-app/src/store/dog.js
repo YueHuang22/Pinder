@@ -39,6 +39,8 @@ const deleteDog = (id) => ({
 
 // Thunks
 export const loadDogs = () => async (dispatch) => {
+    const bla = await fetch("/api/playdates");
+    const d = await bla.json()
     const response = await fetch("/api/dogs");
     if (response.ok) {
         const dogs = await response.json();
@@ -139,12 +141,6 @@ export default function dogRuducer(state = initialState, action) {
             return newState;
         // case EDIT_DOG:
         //     newState = { ...state, currentDog: action.payload };
-        //     return newState;
-        // case EDIT_GROUP:
-        //     const group = state.find(group => group.id === +action.payload.id)
-        //     newState = [...state]
-        //     newState = newState.filter(f => f !== group)
-        //     newState = [...newState, action.payload.group]
         //     return newState;
         case EDIT_DOG:
             const dog = state.dogs.find(dog => dog.id === +action.payload.id)

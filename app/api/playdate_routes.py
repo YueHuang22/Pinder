@@ -10,10 +10,26 @@ playdate_routes = Blueprint('playdates', __name__)
 @playdate_routes.route('')
 @login_required
 def get_playdates():
-    # playdates = Playdate.query.filter(
-    #     Playdate.sender_pet_id == current_user.id).all()
-    playdates = Playdate.query.all()
-    return {'playdates': [playdate.to_dict() for playdate in playdates]}
+    dogs = current_user.dogs
+    dog_dates = {}
+    for dog in dogs:
+        dates = {"future_dates": [], "requests": []}
+        for date in dog.playdates_sent:
+            if date.status == "Approved":
+                # TODO: filter out past dates
+                dates['future_dates'].append(
+                    date.to_dict()
+                )
+
+        for date in dog.playdates_received:
+            if date.status == "Approved":
+                dates['future_dates'].append(date.to_dict())
+            elif date.status == "Pending":
+                dates["requests"].append(date.to_dict())
+
+        dog_dates[dog.id] = dates
+
+    return {"dogs": dog_dates}
 
 
 @playdate_routes.route('/<int:id>')

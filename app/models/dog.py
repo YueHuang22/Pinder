@@ -17,8 +17,9 @@ class Dog(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
     user = db.relationship("User", back_populates='dogs')
-    playdates = db.relationship(
-        "Playdate", back_populates='dog', cascade='all, delete')
+
+    # playdates_sent = db.relationship("Playdate",  back_populates="sender")
+    # playdates_received = db.relationship("Playdate", back_populates="receiver")
 
     def to_dict(self):
         return {
@@ -34,7 +35,7 @@ class Dog(db.Model):
             'imageUrl': self.image_url,
             'ownerId': self.owner_id,
             'owner': self.user.to_dict_no_additions(),
-            'playdates': [p.to_dict_no_additions() for p in self.playdates]
+            # 'playdates': [p.to_dict_no_additions() for p in self.playdates]
         }
 
     def to_dict_no_additions(self):

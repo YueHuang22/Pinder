@@ -22,7 +22,8 @@ def seed_playdates():
     )
 
     db.session.add(p1)
-    db.session.commit(p2)
+    db.session.add(p2)
+    db.session.commit()
 
 
 def undo_playdates():

@@ -14,8 +14,10 @@ class Playdate(db.Model):
     detail = db.Column(db.String(450), nullable=False)
     status = db.Column(db.String(20), nullable=False)
 
-    sender = db.relationship("Dog", back_populates='playdates')
-    receiver = db.relationship("Dog", back_populates='playdates')
+    sender = db.relationship("Dog", foreign_keys=[
+                             sender_pet_id], backref="playdates_sent")
+    receiver = db.relationship(
+        "Dog", foreign_keys=[receiver_pet_id], backref="playdates_received")
 
     def to_dict(self):
         return {

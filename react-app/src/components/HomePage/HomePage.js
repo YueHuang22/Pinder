@@ -8,7 +8,6 @@ function HomePage() {
     const history = useHistory();
     const sessionUser = useSelector((state) => state.session.user);
     // const userId = sessionUser.id
-    debugger
 
     //onClick fucntions
     function viewDogs() {
