@@ -3,7 +3,7 @@ from wtforms import StringField, DateTimeField, SelectField
 from wtforms.validators import DataRequired
 
 
-class CreatePlaydateForm(FlaskForm):
+class EditPlaydateForm(FlaskForm):
     time = DateTimeField('time', validators=[DataRequired()])
     location = StringField('location', validators=[DataRequired()])
     detail = StringField('detail', validators=[DataRequired()])
