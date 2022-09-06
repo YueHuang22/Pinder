@@ -8,9 +8,10 @@ import Footer from './components/Footer/Footer';
 import HomePage from "./components/HomePage/HomePage";
 import AllDogsPage from './components/AllDogsPage';
 import DogDetailPage from './components/DogDetailPage/DogDetailPage';
-import NewDogForm from './components/NewDogForm/NewDogForm';
-import EditDogForm from './components/EditDogForm/EditDogForm';
 
+import EditDogForm from './components/EditDogForm/EditDogForm';
+import "./index.css"
+import AddDogForm from './components/AllDogsPage/AddDogModal/AddDogForm';
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
           <AllDogsPage />
         </ProtectedRoute >
         <ProtectedRoute path='/dogs/new' exact={true} >
-          <NewDogForm />
+          <AddDogForm />
         </ProtectedRoute >
         <ProtectedRoute path='/dogs/:dogId' exact={true} >
           <DogDetailPage />

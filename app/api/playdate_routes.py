@@ -16,16 +16,20 @@ def get_playdates():
         dates = {"future_dates": [], "requests": []}
         for date in dog.playdates_sent:
             if date.status == "Approved":
+                date_details = date.to_dict_no_additions()
+                date_details["playmate"] = date.receiver.to_dict()
                 # TODO: filter out past dates
                 dates['future_dates'].append(
-                    date.to_dict()
+                    date_details
                 )
 
         for date in dog.playdates_received:
+            date_details = date.to_dict_no_additions()
+            date_details["playmate"] = date.sender.to_dict()
             if date.status == "Approved":
-                dates['future_dates'].append(date.to_dict())
+                dates['future_dates'].append(date_details)
             elif date.status == "Pending":
-                dates["requests"].append(date.to_dict())
+                dates["requests"].append(date_details)
 
         dog_dates[dog.id] = dates
 

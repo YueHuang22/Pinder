@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { createOneDog } from "../../store/dog";
-import './NewDogForm.css';
+import { createOneDog } from "../../../store/dog";
+import './AddDogForm.css';
 
-function NewDogForm() {
+function AddDogForm() {
     const dispatch = useDispatch();
     let history = useHistory();
 
@@ -153,4 +153,4 @@ function NewDogForm() {
     );
 }
 
-export default NewDogForm;
+export default AddDogForm;

@@ -14,6 +14,13 @@ def get_dogs():
     return {'dogs': [dog.to_dict() for dog in dogs]}
 
 
+@dog_routes.route('/my')
+@login_required
+def get_my_dogs():
+    dogs = current_user.dogs
+    return {'dogs': [dog.to_dict() for dog in dogs]}
+
+
 @dog_routes.route('/<int:id>')
 @login_required
 def get_dog_by_id(id):

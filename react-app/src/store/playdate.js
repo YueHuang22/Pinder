@@ -29,7 +29,7 @@ export const loadPlaydates = () => async (dispatch) => {
     const response = await fetch("/api/playdates");
     if (response.ok) {
         const playdates = await response.json();
-        dispatch(loadAllPlaydates(playdates.playdates));
+        dispatch(loadAllPlaydates(playdates.dogs));
         return playdates;
     }
 };
@@ -90,7 +90,7 @@ export const deleteOnePlaydate = (id) => async (dispatch) => {
 };
 
 // Reducer
-const initialState = { playdates: [], currentPlaydate: null };
+const initialState = { playdates: {} };
 
 export default function playdateRuducer(state = initialState, action) {
     let newState;

@@ -1,0 +1,26 @@
+.sidebar-dog {
+    border: solid
+}
+
+.sidebar-dog>img {
+    height: 80px;
+    width: 80px;
+    background-size: cover;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-date-entry {}
+
+.sidebar-date-entry:hover {
+    background-color: red;
+}
+
+.sidebar-date-entry>img {
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+}
