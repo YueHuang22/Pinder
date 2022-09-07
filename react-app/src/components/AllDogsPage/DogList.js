@@ -7,6 +7,7 @@ import "./AllDogsPage.css";
 const DogList = () => {
   const dispatch = useDispatch();
   const dogs = useSelector((state) => state.dog.dogs);
+  const myDogs = useSelector((state) => state.dog.myDogs.map((dog) => dog.id));
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ const DogList = () => {
 
           <div className="alldogs-card-div">
             {dogs.map((dog) => {
-              return <DogCard dog={dog} />;
+              return <DogCard dog={dog} hidden={myDogs.includes(dog.id)} />;
             })}
           </div>
         </>

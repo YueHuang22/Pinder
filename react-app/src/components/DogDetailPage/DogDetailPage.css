@@ -1,35 +1,17 @@
-.detail-dogimage {
-    width: 200px;
-    height: 200px;
-}
-
-.detail-button {
-    border: 1px solid #f47650;
-    border-radius: 5px;
-    background-color: white;
-    color: #f47650;
-    font-size: 14px;
-    font-weight: 300;
-    padding: 10px 40px;
-}
-
-.detail-button:hover {
-    color: #31313E;
-    border: 1px solid #31313E;
-}
-
 .dog-detail-modal-container {
     font-family: Graphik Meetup, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
     color: #f47650;
-    width: 950px;
+    width: 900px;
+    height: 500px;
     padding: 40px;
     display: flex;
+    align-items: center;
 }
 
-.dog-detail-modal-container>div>img {
-    width: 300px;
-    height: 300px;
-    border-radius: 15px;
+.dog-detail-img {
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
 }
 
 .dog-detail-modal-details {
@@ -37,6 +19,24 @@
     flex-direction: column;
     justify-content: space-between;
     margin-left: 40px;
+}
+
+.dog-detail-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 2;
+}
+
+.dog-detail-owner {
+    color: #70949D;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.dog-detail-other {
+    color: #9AA0B0;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .detail-delete-button {
@@ -47,6 +47,7 @@
     font-weight: 300;
     background-color: white;
     padding: 10px 40px;
+    margin-left: 20px;
 }
 
 .detail-delete-button:hover {
@@ -56,5 +57,5 @@
 
 .detail-button-holder {
     display: flex;
-
+    margin-top: 25px;
 }
