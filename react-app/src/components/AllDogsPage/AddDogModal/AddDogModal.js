@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { Modal } from "../../../context/Modal";
 import AddDogForm from "./AddDogForm";
+import "../AllDogsPage.css";
 import "./AddDogForm.css";
 
 const AddDogModal = () => {
@@ -21,7 +22,7 @@ const AddDogModal = () => {
           setShowModal(true);
         }}
       >
-        ADD YOUR DOG
+        ADD DOG
       </button>
 
       {showModal && (

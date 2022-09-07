@@ -8,10 +8,19 @@ import DateEntry, {
 
 const DogEntry = ({ dog, playdates }) => {
   const history = useHistory();
+
   return (
     <div className="sidebar-dog">
-      <img src={dog.imageUrl} alt={dog.name} />
-      <a onClick={() => history.push(`/dogs/${dog.id}`)}>{dog.name}</a>
+      <div
+        className="sidebar-dog-title"
+        onClick={() => history.push(`/dogs/${dog.id}`)}
+      >
+        <div className="sidebar-dog-img">
+          <img src={dog.imageUrl} alt={dog.name} />
+        </div>
+        <div>{dog.name}</div>
+      </div>
+
       {playdates && (
         <>
           {futureDates(playdates.filter((pd) => pd.status === "Approved"))}
@@ -34,7 +43,10 @@ const DogEntry = ({ dog, playdates }) => {
 const futureDates = (dates) => {
   return (
     <div className="sidebar-date-entry-container">
-      Future Playdates {dates.length > 0 && `(${dates.length})`}
+      <div className="sidebar-title">
+        Future Playdates {dates.length > 0 && `(${dates.length})`}
+      </div>
+
       {dates.map((date) => (
         <FutureDate date={date} isRequest={false} />
       ))}
@@ -45,7 +57,10 @@ const futureDates = (dates) => {
 const dateRequests = (dates) => {
   return (
     <div className="sidebar-date-entry-container">
-      Requests Received {dates.length > 0 && `(${dates.length})`}
+      <div className="sidebar-title">
+        Pending Playdates {dates.length > 0 && `(${dates.length})`}
+      </div>
+
       {dates.map((date) => (
         <RequestReceived date={date} isRequest={true} />
       ))}
@@ -56,7 +71,10 @@ const dateRequests = (dates) => {
 const dateSent = (dates) => {
   return (
     <div className="sidebar-date-entry-container">
-      Requests Sent {dates.length > 0 && `(${dates.length})`}
+      <div className="sidebar-title">
+        Requests Sent {dates.length > 0 && `(${dates.length})`}
+      </div>
+
       {dates.map((date) => (
         <RequestSent date={date} isRequest={true} />
       ))}

@@ -1,7 +1,12 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, FloatField, SelectField
-from wtforms.validators import DataRequired, NumberRange
+from wtforms.validators import DataRequired, NumberRange, ValidationError
 
+def is_img(form, field):
+    image_url = field.data
+    if (image_url):
+        if ('.jpg'not in image_url) and ('.jpeg'not in image_url) and ('.png'not in image_url) and ('.webp'not in image_url) and ('.gif'not in image_url) and ('.svg' not in image_url):
+            raise ValidationError("Invalid image URL.")
 
 class CreateDogForm(FlaskForm):
     name = StringField('name', validators=[

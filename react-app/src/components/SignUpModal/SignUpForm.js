@@ -9,8 +9,6 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
-  const [imageUrl, setimageUrl] = useState("");
-  const [socialUrl, setsocialUrl] = useState("");
   const [errors, setErrors] = useState([]);
 
   const history = useHistory();
@@ -19,13 +17,12 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(
-        signUp(firstName, lastName, email, password, imageUrl, socialUrl)
-      );
+      const data = await dispatch(signUp(firstName, lastName, email, password));
       if (data) {
         setErrors(data);
+      } else {
+        history.push("/dogs");
       }
-      history.push("/");
     } else {
       setErrors(["Your password and confirmation password do not match."]);
     }
@@ -41,30 +38,29 @@ const SignUpForm = () => {
         </div>
 
         <div className="signup-form-title">
-          <label>First Name:</label>
+          <label>First Name *</label>
         </div>
         <input
           className="signup-form-input"
           type="text"
           onChange={(e) => setFirstName(e.target.value)}
           value={firstName}
-          required
+          maxLength="20"
         ></input>
 
         <div className="signup-form-title">
-          <label>Last Name:</label>
+          <label>Last Name *</label>
         </div>
         <input
           className="signup-form-input"
           type="text"
           onChange={(e) => setLastName(e.target.value)}
           value={lastName}
-          required
+          maxLength="20"
         ></input>
 
         <div className="signup-form-title">
-          {" "}
-          <label>Email:</label>
+          <label>Email *</label>
         </div>
         <input
           className="signup-form-input"
@@ -72,11 +68,11 @@ const SignUpForm = () => {
           name="email"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
-          required
+          maxLength="100"
         ></input>
 
         <div className="signup-form-title">
-          <label>Password:</label>
+          <label>Password *</label>
         </div>
         <input
           className="signup-form-input"
@@ -84,12 +80,11 @@ const SignUpForm = () => {
           name="password"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
-          required
+          maxLength="100"
         ></input>
 
         <div className="signup-form-title">
-          {" "}
-          <label>Repeat Password:</label>
+          <label>Repeat Password *</label>
         </div>
         <input
           className="signup-form-input"
@@ -97,28 +92,7 @@ const SignUpForm = () => {
           name="repeat_password"
           onChange={(e) => setRepeatPassword(e.target.value)}
           value={repeatPassword}
-          required={true}
-        ></input>
-
-        <div className="signup-form-title">
-          {" "}
-          <label>Profile Picture:</label>
-        </div>
-        <input
-          className="signup-form-input"
-          type="text"
-          onChange={(e) => setimageUrl(e.target.value)}
-          value={imageUrl}
-        ></input>
-
-        <div className="signup-form-title">
-          <label>Your social account:</label>
-        </div>
-        <input
-          className="signup-form-input"
-          type="text"
-          onChange={(e) => setsocialUrl(e.target.value)}
-          value={socialUrl}
+          maxLength="100"
         ></input>
 
         <div className="signup-form-button-container">

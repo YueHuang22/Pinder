@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { loadDogs } from "../../store/dog";
-import "./AllDogsPage.css";
-import "../../index.css";
 import DogCard from "./DogCard";
-import AddDogModal from "./AddDogModal/AddDogModal";
+import "./AllDogsPage.css";
 
 const DogList = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const dogs = useSelector((state) => state.dog.dogs);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -29,14 +25,11 @@ const DogList = () => {
       {isLoaded && (
         <>
           <div className="alldogs-title">FRIENDS TO MEET</div>
+
           <div className="alldogs-card-div">
             {dogs.map((dog) => {
               return <DogCard dog={dog} />;
             })}
-          </div>
-
-          <div className="alldogs-card-button">
-            <AddDogModal />
           </div>
         </>
       )}

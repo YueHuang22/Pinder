@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./Sidebar.css";
 import { loadPlaydates } from "../../../store/playdate";
 import { loadMyDogs } from "../../../store/dog";
+import AddDogModal from "../AddDogModal/AddDogModal";
 import DogEntry from "./DogEntry";
+import "../AllDogsPage.css";
+import "./Sidebar.css";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,7 @@ const Sidebar = () => {
 
     intializePage();
   }, [dispatch]);
+
   return (
     <div class="sidebar-content">
       {dogs.map((dog) => (
@@ -34,6 +37,10 @@ const Sidebar = () => {
           )}
         />
       ))}
+
+      <div className="alldogs-card-button">
+        <AddDogModal />
+      </div>
     </div>
   );
 };
