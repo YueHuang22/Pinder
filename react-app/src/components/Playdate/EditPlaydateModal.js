@@ -32,7 +32,10 @@ const EditPlaydateModal = ({ date }) => {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>
+      <button
+        className="sidebar-date-entry-button"
+        onClick={() => setShowModal(true)}
+      >
         <i class="fa-solid fa-pen" />
       </button>
 

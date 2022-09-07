@@ -12,7 +12,7 @@ def seed_dogs():
         fixed=True,
         energy_level='Medium',
         description='Mochi is very friendly',
-        image_url='https://i.pinimg.com/originals/0a/66/80/0a6680651b7139d63e66b95f5e376151.jpg',
+        image_url='https://i.imgur.com/1wQZ4Fn.jpg',
         owner_id=1
     )
 
@@ -25,7 +25,7 @@ def seed_dogs():
         fixed=True,
         energy_level='High',
         description='Truffle is shy at first',
-        image_url='https://i.pinimg.com/originals/0a/66/80/0a6680651b7139d63e66b95f5e376151.jpg',
+        image_url='https://i.imgur.com/8X5CMvO.jpg',
         owner_id=1
     )
 

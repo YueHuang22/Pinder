@@ -4,6 +4,31 @@ import EditPlaydateModal from "../../Playdate/EditPlaydateModal";
 import { approveOnePlaydate, deleteOnePlaydate } from "../../../store/playdate";
 import { useDispatch } from "react-redux";
 
+export const FutureDate = ({ date }) => {
+  const history = useHistory();
+
+  return (
+    <div className="sidebar-date-entry">
+      <div>
+        <img
+          className="sidebar-date-entry-img"
+          src={date.playmate.imageUrl}
+          alt={date.playmate.name}
+        />
+      </div>
+
+      <div className="sidebar-date-entry-text">
+        A date with{" "}
+        <a onClick={() => history.push(`/dogs/${date.playmate.id}`)}>
+          {date.playmate.name}
+        </a>{" "}
+        on {new Date(date.time).toLocaleDateString()}
+      </div>
+    </div>
+  );
+};
+
+//-----------------------------------------------------------------------
 export const RequestReceived = ({ date }) => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -24,41 +49,41 @@ export const RequestReceived = ({ date }) => {
 
   return (
     <div className="sidebar-date-entry">
-      <img src={date.playmate.imageUrl} alt={date.playmate.name} />
       <div>
-        <a onClick={() => history.push(`/dogs/${date.playmate.id}`)}>
-          {date.playmate.name}
-        </a>{" "}
-        wants to play with you on {new Date(date.time).toLocaleDateString()}
+        <img
+          className="sidebar-date-entry-img"
+          src={date.playmate.imageUrl}
+          alt={date.playmate.name}
+        />
       </div>
-      <div>
-        <button onClick={clickAcceptPlaydate}>
-          <i class="fa-sharp fa-solid fa-check" />
-        </button>
-        <button onClick={clickDeletePlaydate}>
-          <i class="fa-solid fa-xmark" />
-        </button>
+
+      <div className="sidebar-date-entry-text">
+        <div>
+          <a onClick={() => history.push(`/dogs/${date.playmate.id}`)}>
+            {date.playmate.name}
+          </a>{" "}
+          wants to play with you on {new Date(date.time).toLocaleDateString()}
+        </div>
+        <div>
+          <button
+            className="sidebar-date-entry-button"
+            onClick={clickAcceptPlaydate}
+          >
+            <i class="fa-sharp fa-solid fa-check" />
+          </button>
+          <button
+            className="sidebar-date-entry-button"
+            onClick={clickDeletePlaydate}
+          >
+            <i class="fa-solid fa-xmark" />
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 
-export const FutureDate = ({ date }) => {
-  const history = useHistory();
-  return (
-    <div className="sidebar-date-entry">
-      <img src={date.playmate.imageUrl} alt={date.playmate.name} />
-      <div>
-        A date with{" "}
-        <a onClick={() => history.push(`/dogs/${date.playmate.id}`)}>
-          {date.playmate.name}
-        </a>{" "}
-        on {new Date(date.time).toLocaleDateString()}
-      </div>
-    </div>
-  );
-};
-
+//-----------------------------------------------------------------------
 export const RequestSent = ({ date }) => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -73,18 +98,30 @@ export const RequestSent = ({ date }) => {
 
   return (
     <div className="sidebar-date-entry">
-      <img src={date.playmate.imageUrl} alt={date.playmate.name} />
       <div>
-        Waiting for{" "}
-        <a onClick={() => history.push(`/dogs/${date.playmate.id}`)}>
-          {date.playmate.name}
-        </a>{" "}
-        to accept playdate request on {new Date(date.time).toLocaleDateString()}
+        <img
+          className="sidebar-date-entry-img"
+          src={date.playmate.imageUrl}
+          alt={date.playmate.name}
+        />
+      </div>
+      <div className="sidebar-date-entry-text">
         <div>
-          <EditPlaydateModal date={date} />
-          <button onClick={clickDeletePlaydate}>
-            <i class="fa-solid fa-trash"></i>
-          </button>
+          Waiting for{" "}
+          <a onClick={() => history.push(`/dogs/${date.playmate.id}`)}>
+            {date.playmate.name}
+          </a>{" "}
+          to accept playdate request on{" "}
+          {new Date(date.time).toLocaleDateString()}
+          <div>
+            <EditPlaydateModal date={date} />
+            <button
+              className="sidebar-date-entry-button"
+              onClick={clickDeletePlaydate}
+            >
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ def validation_errors_to_error_messages(validation_errors):
     errorMessages = []
     for field in validation_errors:
         for error in validation_errors[field]:
-            errorMessages.append(f'{field.capitalize()} : {error}')
+            errorMessages.append(f'{" ".join(field.split("_")).capitalize()} : {error}')
     return errorMessages
 
 
@@ -67,8 +67,6 @@ def sign_up():
             last_name=form.data['last_name'],
             email=form.data['email'],
             password=form.data['password'],
-            image_url=form.data['image_url'],
-            social_url=form.data['social_url']
         )
         db.session.add(user)
         db.session.commit()
