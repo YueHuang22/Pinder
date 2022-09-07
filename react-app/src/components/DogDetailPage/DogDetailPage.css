@@ -18,21 +18,43 @@
     border: 1px solid #31313E;
 }
 
-.dog-detail-modeal-container {
+.dog-detail-modal-container {
+    font-family: Graphik Meetup, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    color: #f47650;
     width: 950px;
     padding: 40px;
     display: flex;
 }
 
-.dog-detail-modeal-container>div>img {
+.dog-detail-modal-container>div>img {
     width: 300px;
     height: 300px;
     border-radius: 15px;
 }
 
-.dog-detail-modeal-details {
+.dog-detail-modal-details {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-left: 40px;
+}
+
+.detail-delete-button {
+    border: 1px solid #f47650;
+    border-radius: 5px;
+    color: #f47650;
+    font-size: 14px;
+    font-weight: 300;
+    background-color: white;
+    padding: 10px 40px;
+}
+
+.detail-delete-button:hover {
+    color: #31313E;
+    border: 1px solid #31313E;
+}
+
+.detail-button-holder {
+    display: flex;
+
 }

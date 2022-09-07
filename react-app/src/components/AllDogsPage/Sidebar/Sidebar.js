@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import "./Sidebar.css";
 import { loadPlaydates } from "../../../store/playdate";
 import { loadMyDogs } from "../../../store/dog";
-import DateEntry from "./DateEntry";
 import DogEntry from "./DogEntry";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  const myDogs = useSelector((state) => state.dog.myDogs);
-  const myPlaydates = useSelector((state) => state.playdate.playdates);
+  const dogs = useSelector((state) => state.dog.myDogs);
+  const playdates = useSelector((state) => state.playdate.playdates);
 
   useEffect(() => {
     setIsLoaded(false);
@@ -24,11 +22,17 @@ const Sidebar = () => {
 
     intializePage();
   }, [dispatch]);
-
   return (
     <div class="sidebar-content">
-      {myDogs.map((dog) => (
-        <DogEntry dog={dog} playdates={myPlaydates[dog.id]} />
+      {dogs.map((dog) => (
+        <DogEntry
+          dog={dog}
+          playdates={playdates.filter(
+            (playdate) =>
+              playdate.senderPetId === dog.id ||
+              playdate.receiverPetId === dog.id
+          )}
+        />
       ))}
     </div>
   );

@@ -6,18 +6,18 @@ class Playdate(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     sender_pet_id = db.Column(
-        db.Integer, db.ForeignKey("dogs.id"), nullable=False)
+        db.Integer, db.ForeignKey("dogs.id", ondelete="cascade"), nullable=False)
     receiver_pet_id = db.Column(
-        db.Integer, db.ForeignKey("dogs.id"), nullable=False)
+        db.Integer, db.ForeignKey("dogs.id", ondelete="cascade"), nullable=False)
     time = db.Column(db.DateTime, nullable=False)
     location = db.Column(db.String(300), nullable=False)
     detail = db.Column(db.String(450), nullable=False)
     status = db.Column(db.String(20), nullable=False)
 
     sender = db.relationship("Dog", foreign_keys=[
-                             sender_pet_id], backref="playdates_sent")
+                             sender_pet_id], backref=db.backref("playdates_sent", cascade="all, delete-orphan"))
     receiver = db.relationship(
-        "Dog", foreign_keys=[receiver_pet_id], backref="playdates_received")
+        "Dog", foreign_keys=[receiver_pet_id], backref=db.backref("playdates_received", cascade="all, delete-orphan"))
 
     def to_dict(self):
         return {

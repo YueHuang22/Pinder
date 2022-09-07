@@ -181,11 +181,9 @@ export default function dogRuducer(state = initialState, action) {
       newState = { dogs: newDogs, currentDog: action.payload };
       return newState;
     case DELETE_DOG:
-      const dog_to_delete = state.dogs.find(
-        (dog) => dog.id === +action.payload
-      );
-      let new_dogs = state.dogs.filter((d) => d !== dog_to_delete);
-      newState = { ...state, dogs: new_dogs };
+      const new_dogs = state.dogs.filter((d) => d.id !== +action.payload);
+      const new_myDogs = state.myDogs.filter((d) => d.id !== +action.payload);
+      newState = { ...state, dogs: new_dogs, myDogs: new_myDogs };
       return newState;
     default:
       return state;

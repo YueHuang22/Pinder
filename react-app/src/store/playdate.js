@@ -14,9 +14,9 @@ const createPlaydate = (playdate) => ({
   payload: playdate,
 });
 
-const editPlaydate = (id, playdate) => ({
+const editPlaydate = (playdate) => ({
   type: EDIT_PLAYDATE,
-  payload: { id, playdate },
+  payload: playdate,
 });
 
 const deletePlaydate = (id) => ({
@@ -29,44 +29,30 @@ export const loadPlaydates = () => async (dispatch) => {
   const response = await fetch("/api/playdates");
   if (response.ok) {
     const playdates = await response.json();
-    dispatch(loadAllPlaydates(playdates.dogs));
+    dispatch(loadAllPlaydates(playdates.playdates));
     return playdates;
   }
 };
 
 export const createOnePlaydate = (payload) => async (dispatch) => {
-  const {
-    name,
-    birthday,
-    weight,
-    breed,
-    gender,
-    fixed,
-    energy_level,
-    description,
-    image_url,
-  } = payload;
+  const { location, time, detail, senderPetId, receiverPetId } = payload;
   const response = await fetch("/api/playdates", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      name,
-      birthday,
-      weight,
-      breed,
-      gender,
-      fixed,
-      energy_level,
-      description,
-      image_url,
+      location,
+      time,
+      detail,
+      sender_pet_id: senderPetId,
+      receiver_pet_id: receiverPetId,
     }),
   });
   if (response.ok) {
     const playdate = await response.json();
     dispatch(createPlaydate(playdate));
-    return playdate;
+    return;
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
@@ -87,7 +73,28 @@ export const editOnePlaydate = (id, payload) => async (dispatch) => {
   });
   if (response.ok) {
     const playdate = await response.json();
-    dispatch(editPlaydate(id, playdate));
+    dispatch(editPlaydate(playdate));
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ["An error occurred. Please try again."];
+  }
+};
+
+export const approveOnePlaydate = (id) => async (dispatch) => {
+  const response = await fetch(`/api/playdates/${id}/approve`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({}),
+  });
+  if (response.ok) {
+    const playdate = await response.json();
+    dispatch(editPlaydate(playdate));
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
@@ -108,7 +115,7 @@ export const deleteOnePlaydate = (id) => async (dispatch) => {
 };
 
 // Reducer
-const initialState = { playdates: {} };
+const initialState = { playdates: [] };
 
 export default function playdateRuducer(state = initialState, action) {
   let newState;
@@ -120,24 +127,19 @@ export default function playdateRuducer(state = initialState, action) {
       let playdates = state.playdates;
       newState = { ...state, playdates: [...playdates, action.payload] };
       return newState;
-    // case EDIT_PLAYDATE:
-    //     newState = { ...state, currentPlaydate: action.payload };
-    //     return newState;
     case EDIT_PLAYDATE:
-      const playdate = state.playdates.find(
-        (playdate) => playdate.id === +action.payload.id
+      const newPlaydates = state.playdates.filter(
+        (d) => d.id !== action.payload.id
       );
-      let newPlaydates = state.playdates.filter((d) => d !== playdate);
-      newState = { playdates: newPlaydates, currentPlaydate: action.payload };
+      newState = { playdates: [...newPlaydates, action.payload] };
       return newState;
     case DELETE_PLAYDATE:
-      const playdate_to_delete = state.playdates.find(
-        (playdate) => playdate.id === +action.payload
-      );
-      let new_playdates = state.playdates.filter(
-        (d) => d !== playdate_to_delete
-      );
-      newState = { ...state, playdates: new_playdates };
+      newState = {
+        ...state,
+        playdates: state.playdates.filter(
+          (playdate) => playdate.id !== +action.payload
+        ),
+      };
       return newState;
     default:
       return state;

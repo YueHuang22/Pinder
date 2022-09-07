@@ -82,7 +82,7 @@ def seed_dogs():
     )
 
     d7 = Dog(
-        name='Yellow',
+        name='Henry',
         birthday=date(2022, 7, 12),
         weight=8,
         breed='Golden Doodle',
@@ -93,6 +93,45 @@ def seed_dogs():
         image_url='https://i.pinimg.com/originals/0a/66/80/0a6680651b7139d63e66b95f5e376151.jpg',
         owner_id=5
     )
+    
+    d8 = Dog(
+        name='Didi',
+        birthday=date(2021, 11, 12),
+        weight=6,
+        breed='Maltipoo',
+        gender='Male',
+        fixed=True,
+        energy_level='High',
+        description='',
+        image_url='https://i.pinimg.com/originals/0a/66/80/0a6680651b7139d63e66b95f5e376151.jpg',
+        owner_id=6
+    )
+    
+    d9 = Dog(
+        name='Miki',
+        birthday=date(2019, 10, 12),
+        weight=35,
+        breed='Westie',
+        gender='Male',
+        fixed=True,
+        energy_level='High',
+        description='',
+        image_url='https://i.pinimg.com/originals/0a/66/80/0a6680651b7139d63e66b95f5e376151.jpg',
+        owner_id=7
+    )
+    
+    d10 = Dog(
+        name='Coke',
+        birthday=date(2011, 12, 22),
+        weight=40,
+        breed='Corgi',
+        gender='Male',
+        fixed=True,
+        energy_level='Low',
+        description='',
+        image_url='https://i.pinimg.com/originals/0a/66/80/0a6680651b7139d63e66b95f5e376151.jpg',
+        owner_id=8
+    )
 
     db.session.add(d1)
     db.session.add(d2)
@@ -101,6 +140,9 @@ def seed_dogs():
     db.session.add(d5)
     db.session.add(d6)
     db.session.add(d7)
+    db.session.add(d8)
+    db.session.add(d9)
+    db.session.add(d10)
 
     db.session.commit()
 

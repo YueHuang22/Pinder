@@ -52,7 +52,18 @@
     color: rgb(162, 162, 162);
 }
 
+.footer-linkedin-icons-container .fa-github {
+    font-size: 30px;
+    color: rgb(162, 162, 162);
+}
+
+
 .footer-linkedin-icons-container .fa-linkedin:hover {
     color: #0D65C2;
+    cursor: pointer;
+}
+
+.footer-linkedin-icons-container .fa-github:hover {
+    color: #24282F;
     cursor: pointer;
 }

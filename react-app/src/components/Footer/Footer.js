@@ -29,6 +29,17 @@ function Footer() {
               </a>
             </div>
           </div>
+          <div>
+            <div className="footer-linkedin-icons-container">
+              <a
+                href="https://github.com/YueHuang22"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import { loadDogs } from "../../store/dog";
 import "./AllDogsPage.css";
 import "../../index.css";
 import DogCard from "./DogCard";
+import AddDogModal from "./AddDogModal/AddDogModal";
 
 const DogList = () => {
   const dispatch = useDispatch();
@@ -35,12 +36,7 @@ const DogList = () => {
           </div>
 
           <div className="alldogs-card-button">
-            <button
-              className="alldogs-button"
-              onClick={() => history.push("/dogs/new")}
-            >
-              ADD YOUR DOG
-            </button>
+            <AddDogModal />
           </div>
         </>
       )}

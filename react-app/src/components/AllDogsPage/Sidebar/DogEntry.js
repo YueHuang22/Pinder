@@ -1,6 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import DateEntry from "./DateEntry";
+import DateEntry, {
+  FutureDate,
+  RequestReceived,
+  RequestSent,
+} from "./PlaydateEntry";
 
 const DogEntry = ({ dog, playdates }) => {
   const history = useHistory();
@@ -10,8 +14,17 @@ const DogEntry = ({ dog, playdates }) => {
       <a onClick={() => history.push(`/dogs/${dog.id}`)}>{dog.name}</a>
       {playdates && (
         <>
-          {futureDates(playdates.future_dates)}
-          {dateRequests(playdates.requests)}
+          {futureDates(playdates.filter((pd) => pd.status === "Approved"))}
+          {dateRequests(
+            playdates.filter(
+              (pd) => pd.status === "Pending" && pd.receiverPetId === dog.id
+            )
+          )}
+          {dateSent(
+            playdates.filter(
+              (pd) => pd.status === "Pending" && pd.senderPetId === dog.id
+            )
+          )}
         </>
       )}
     </div>
@@ -20,10 +33,10 @@ const DogEntry = ({ dog, playdates }) => {
 
 const futureDates = (dates) => {
   return (
-    <div>
+    <div className="sidebar-date-entry-container">
       Future Playdates {dates.length > 0 && `(${dates.length})`}
       {dates.map((date) => (
-        <DateEntry date={date} isRequest={false} />
+        <FutureDate date={date} isRequest={false} />
       ))}
     </div>
   );
@@ -31,10 +44,21 @@ const futureDates = (dates) => {
 
 const dateRequests = (dates) => {
   return (
-    <div>
-      Playdate Requests {dates.length > 0 && `(${dates.length})`}
+    <div className="sidebar-date-entry-container">
+      Requests Received {dates.length > 0 && `(${dates.length})`}
       {dates.map((date) => (
-        <DateEntry date={date} isRequest={true} />
+        <RequestReceived date={date} isRequest={true} />
+      ))}
+    </div>
+  );
+};
+
+const dateSent = (dates) => {
+  return (
+    <div className="sidebar-date-entry-container">
+      Requests Sent {dates.length > 0 && `(${dates.length})`}
+      {dates.map((date) => (
+        <RequestSent date={date} isRequest={true} />
       ))}
     </div>
   );

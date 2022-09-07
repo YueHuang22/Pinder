@@ -1,17 +1,41 @@
-
-import React, { useState, useHistory } from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
+import { Modal } from "../../../context/Modal";
+import AddDogForm from "./AddDogForm";
+import "./AddDogForm.css";
 
 const AddDogModal = () => {
+  const history = useHistory();
+  const location = useLocation();
+  const [showModal, setShowModal] = useState(false);
 
-    const history = useHistory()
+  useEffect(() => {
+    setShowModal(location.pathname === "/dogs/new");
+  }, [location.pathname]);
 
-    return (
-        <div className="alldogs-card-button">
-            <button className="alldogs-button" onClick={() => history.push('/dogs/new')}>
-                ADD YOUR DOG
-            </button>
-        </div>
-    )
-}
+  return (
+    <>
+      <button
+        className="add-dog-button"
+        onClick={() => {
+          setShowModal(true);
+        }}
+      >
+        ADD YOUR DOG
+      </button>
 
-export default AddDogModal
+      {showModal && (
+        <Modal
+          onClose={() => {
+            history.push("/dogs");
+            setShowModal(false);
+          }}
+        >
+          <AddDogForm />
+        </Modal>
+      )}
+    </>
+  );
+};
+
+export default AddDogModal;

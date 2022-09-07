@@ -13,10 +13,14 @@
     flex-direction: column;
 }
 
+.sidebar-date-entry-container {
+    border: solid blue;
+}
+
 .sidebar-date-entry {}
 
 .sidebar-date-entry:hover {
-    background-color: red;
+    background-color: #FFC49D;
 }
 
 .sidebar-date-entry>img {

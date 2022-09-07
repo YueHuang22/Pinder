@@ -1,34 +1,60 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
 import { Modal } from "../../context/Modal";
+import { deleteOneDog } from "../../store/dog";
+import NewPlaydateModal from "../Playdate/NewPlaydateModal";
+import EditDogModal from "../AllDogsPage/EditDogForm/EditDogModal";
+import "./DogDetailPage.css";
 
 const DogDetailModal = ({ dog, onClose }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const { dogId } = useParams();
   const myDogs = useSelector((state) => state.dog.myDogs);
   const isMyDog = myDogs.some((myDog) => myDog.id === dog.id);
 
+  //onClicks
+  const deleteClick = async () => {
+    await dispatch(deleteOneDog(dogId)).then(() => history.push("/dogs"));
+  };
+
   return (
     <Modal onClose={onClose}>
-      <div className="dog-detail-modeal-container">
+      <div className="dog-detail-modal-container">
         <div>
           <img style={{ height: 500 }} alt="dog" src={dog.imageUrl}></img>
         </div>
-        <div className="dog-detail-modeal-details">
+
+        <div className="dog-detail-modal-details">
           <div>
             <h1>
               {dog.name} {getGenderSign(dog.gender)}
             </h1>
             <div>Owner: {dog.owner.firstName}</div>
-            <div>Gender: {dog.gender} </div>
             <div>Birthday: {new Date(dog.birthday).toLocaleDateString()}</div>
-            <div>{dog.breed}</div>
-            <div>{dog.energyLevel}</div>
-            <div>fixed:{dog.fixed}</div>
-            <div>{dog.breed}</div>
+            <div>Breed: {dog.breed}</div>
+            <div>Energy level: {dog.energyLevel}</div>
+            <div>Fixed: {dog.fixed}</div>
             <div></div>
             <div>Weight: {dog.weight} lbs</div>
             <div>{dog.description}</div>
           </div>
-          <div>send request</div>
+
+          {isMyDog ? (
+            <>
+              <div className="detail-button-holder">
+                <div>
+                  <EditDogModal />
+                </div>
+                <button className="detail-delete-button" onClick={deleteClick}>
+                  Delete
+                </button>
+              </div>
+            </>
+          ) : (
+            <NewPlaydateModal receiverPetId={dog.id} />
+          )}
         </div>
       </div>
     </Modal>

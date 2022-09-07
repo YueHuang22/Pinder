@@ -7,11 +7,6 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import HomePage from "./components/HomePage/HomePage";
 import AllDogsPage from "./components/AllDogsPage";
-import DogDetailPage from "./components/DogDetailPage/DogDetailPage";
-
-import EditDogForm from "./components/EditDogForm/EditDogForm";
-import "./index.css";
-import AddDogForm from "./components/AllDogsPage/AddDogModal/AddDogForm";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -35,15 +30,6 @@ function App() {
         <ProtectedRoute path={["/dogs", "/dogs/:dogId"]} exact={true}>
           <AllDogsPage />
         </ProtectedRoute>
-        <ProtectedRoute path="/dogs/new" exact={true}>
-          <AddDogForm />
-        </ProtectedRoute>
-        {/* <ProtectedRoute path='/dogs/:dogId' exact={true} >
-          <DogDetailPage />
-        </ProtectedRoute >
-        <ProtectedRoute path='/dogs/:dogId/edit' exact={true} >
-          <EditDogForm />
-        </ProtectedRoute > */}
         <Route path={["/", "/login", "/sign-up"]} exact={true}>
           <HomePage />
         </Route>
