@@ -9,10 +9,8 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(20), nullable=False)
     last_name = db.Column(db.String(20), nullable=False)
-    email = db.Column(db.String(255), nullable=False, unique=True)
-    hashed_password = db.Column(db.String(255), nullable=False)
-    image_url = db.Column(db.String(500), nullable=True)
-    social_url = db.Column(db.String(500), nullable=True)
+    email = db.Column(db.String(100), nullable=False, unique=True)
+    hashed_password = db.Column(db.String(100), nullable=False)
 
     dogs = db.relationship(
         "Dog", back_populates='user', cascade='all, delete')
@@ -34,8 +32,6 @@ class User(db.Model, UserMixin):
             'firstName': self.first_name,
             'lastName': self.last_name,
             'email': self.email,
-            'imageUrl': self.image_url,
-            'socialUrl': self.social_url,
             'dogs': [d.to_dict_no_additions() for d in self.dogs]
         }
 
@@ -45,6 +41,4 @@ class User(db.Model, UserMixin):
             'firstName': self.first_name,
             'lastName': self.last_name,
             'email': self.email,
-            'imageUrl': self.image_url,
-            'socialUrl': self.social_url,
         }

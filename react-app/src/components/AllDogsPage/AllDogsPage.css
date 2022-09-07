@@ -1,35 +1,59 @@
 .alldogs-container {
-    background-color: #FF914D;
-    height: 100vh;
-    margin-top: 40px;
+    background-color: #F6F6F6;
+    min-height: 90vh;
+    min-width: 1036px;
+    margin-top: 1%;
     border-radius: 8px;
     display: flex;
+    font-family: Graphik Meetup, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.alldogs-content-container {
+    display: flex;
+    margin: auto;
+    padding: 0 30px;
+    max-width: 1400px;
+    min-width: 1036px;
+}
+
+.alldogs-card-container {
+    height: 90%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    font-family: "Capsule Sans Display", system-ui, -apple-system,
-        BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.alldogs-sidebar-container {
+    height: 90%;
+    width: 800px;
+    margin-top: 5%;
+    margin-bottom: 1%;
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(227, 233, 237);
+    border-radius: 0.5rem;
+    box-shadow: rgb(0 0 0/ 24%) 0px 3px 8px;
+    overflow-y: auto;
+    background-color: white;
 }
 
 .alldogs-title {
-    margin-top: 8%;
-    color: white;
-    font-size: 40px;
-    font-weight: 500;
+    color: #FF914D;
+    font-family: Arial Black;
+    font-size: 35px;
 }
 
 .alldogs-card-div {
-    margin-top: 5%;
+    margin-top: 1%;
     height: 80%;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-
+    overflow-y: auto;
 }
 
-
-
-
-
+/* ---------------------------------------- */
 .alldog-dogcard {
     display: flex;
     flex-direction: column;
@@ -39,31 +63,44 @@
     background-color: white;
     cursor: pointer;
     /* to be changed */
-    margin-left: 30px;
+    margin-right: 30px;
     margin-top: 15px;
+    font-family: Graphik Meetup, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
 }
 
-.alldog-cardimage {
+.alldog-dogcard:hover {
+    background-color: #EBE9E6;
+}
 
-    width: 100%;
-    height: 50%;
+.alldog-cardimage-div {
+    width: 200px;
+    height: 200px;
+
 }
 
 .alldog-dogimage {
-    width: 100%;
-    height: 100%;
-    margin-top: 5px;
-
+    width: 200px;
+    height: 200px;
+    border-radius: 4px;
 }
 
 .alldog-cardtext {
     width: 80%;
     margin: auto;
+    line-height: 1.5;
+    font-size: 15px;
 }
 
+.alldog-cardtext-name {
+    color: #70949D;
+    font-weight: bold;
+}
 
-
-
+.alldog-cardtext-other {
+    color: #9AA0B0;
+    font-size: 13px;
+    font-weight: 500;
+}
 
 .alldogs-card-button {
     margin-bottom: 5%;
@@ -83,3 +120,5 @@
     color: #31313E;
     border: 1px solid #31313E;
 }
+
+/* ---------------------------------------- */

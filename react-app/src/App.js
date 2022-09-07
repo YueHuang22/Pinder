@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { authenticate } from './store/session';
-import { Modal } from './context/Modal';
-import ProtectedRoute from './components/Auth/ProtectedRoute';
-import SignUpForm from './components/SignUpModal/SignUpForm';
-import NavBar from './components/NavBar/NavBar';
-import Footer from './components/Footer';
-import LoginForm from './components/LoginModal/LoginForm';
-import HomePage from "./components/HomePage";
-import AllDogsPage from './components/AllDogsPage';
-import DogDetailPage from './components/DogDetailPage/DogDetailPage';
-import NewDogForm from './components/NewDogForm/NewDogForm';
-import EditDogForm from './components/EditDogForm/EditDogForm';
-
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authenticate } from "./store/session";
+import ProtectedRoute from "./components/Auth/ProtectedRoute";
+import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
+import HomePage from "./components/HomePage/HomePage";
+import AllDogsPage from "./components/AllDogsPage";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,22 +27,10 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <ProtectedRoute path='/dogs' exact={true} >
+        <ProtectedRoute path={["/dogs", "/dogs/:dogId"]} exact={true}>
           <AllDogsPage />
-        </ProtectedRoute >
-        <ProtectedRoute path='/dogs/new' exact={true} >
-          <NewDogForm />
-        </ProtectedRoute >
-        <ProtectedRoute path='/dogs/:dogId' exact={true} >
-          <DogDetailPage />
-        </ProtectedRoute >
-        <ProtectedRoute path='/dogs/:dogId/edit' exact={true} >
-          <EditDogForm />
-        </ProtectedRoute >
-        <ProtectedRoute path='/users/:userId/playdates' exact={true}>
-
         </ProtectedRoute>
-        <Route path={['/', '/login', '/sign-up']} exact={true} >
+        <Route path={["/", "/login", "/sign-up"]} exact={true}>
           <HomePage />
         </Route>
       </Switch>

@@ -6,7 +6,7 @@ class Dog(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(35), nullable=False)
-    birthday = db.Column(db.DateTime, nullable=False)
+    birthday = db.Column(db.Date, nullable=False)
     weight = db.Column(db.Float(precision=2, asdecimal=False), nullable=False)
     breed = db.Column(db.String(50), nullable=False)
     gender = db.Column(db.String(10), nullable=False)
@@ -17,6 +17,9 @@ class Dog(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
     user = db.relationship("User", back_populates='dogs')
+
+    # playdates_sent = db.relationship("Playdate",  back_populates="sender")
+    # playdates_received = db.relationship("Playdate", back_populates="receiver")
 
     def to_dict(self):
         return {
@@ -32,6 +35,7 @@ class Dog(db.Model):
             'imageUrl': self.image_url,
             'ownerId': self.owner_id,
             'owner': self.user.to_dict_no_additions(),
+            # 'playdates': [p.to_dict_no_additions() for p in self.playdates]
         }
 
     def to_dict_no_additions(self):

@@ -1,0 +1,79 @@
+.add-dog-button {
+    border: 1px solid #FF914D;
+    border-radius: 5px;
+    color: #FF914D;
+    font-size: 14px;
+    font-weight: 300;
+    background-color: white;
+    padding: 10px 40px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.add-dog-button:hover {
+    color: #31313E;
+    border: 1px solid #31313E;
+}
+
+.add-dog-form-container {
+    font-family: Graphik Meetup, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    color: #f47650;
+}
+
+.add-dog-form {
+    height: 1000px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.add-dog-errors {
+    font-size: .975rem;
+    font-style: normal;
+    line-height: 20px;
+    letter-spacing: 0;
+    font-weight: 500;
+    color: #f47650;
+    margin-left: 20%;
+}
+
+.add-dog-form-title {
+    margin-left: 20%;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.add-dog-form-input {
+    margin-left: 20%;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(230 230 230);
+    border-width: 1px;
+}
+
+.add-dog-form-input:hover {
+    border: 1px solid #31313E;
+}
+
+.add-dog-form-button-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.add-dog-form-button {
+    border: 1px solid #f47650;
+    border-radius: 5px;
+    background-color: white;
+    color: #f47650;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 10px 40px;
+}
+
+.add-dog-form-button:hover {
+    color: #31313E;
+    border: 1px solid #31313E;
+}

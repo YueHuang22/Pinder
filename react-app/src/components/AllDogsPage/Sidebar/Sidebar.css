@@ -1,0 +1,105 @@
+.sidebar-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-family: Graphik Meetup, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    color: #70949D;
+    padding: 0 25px;
+}
+
+.sidebar-top {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #FF914D;
+    font-family: Arial Black;
+    font-size: 28px;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: rgb(227, 233, 237);
+}
+
+.sidebar-dog {
+    width: 100%;
+    font-weight: 600;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: rgb(227, 233, 237);
+    margin-top: 10px;
+}
+
+.sidebar-dog-title {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 25px;
+    font-weight: bold;
+    background-color: #EBE9E6;
+    border-radius: 3px;
+}
+
+.sidebar-title {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #9AA0B0;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.sidebar-dog-img>img {
+    height: 40px;
+    width: 40px;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.sidebar-dog-title>div {
+    margin-left: 10px;
+}
+
+.sidebar-date-entry {
+    color: #414141;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.sidebar-date-entry-img {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+}
+
+.sidebar-date-entry-text {
+    margin-left: 20px;
+}
+
+.sidebar-date-entry-button {
+    color: #9AA0B0;
+    padding: 8px 5px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.sidebar-date-entry-button:hover {
+    color: #FF914D;
+}
+
+.sidebar-date-entry-link {
+    cursor: pointer;
+    color: #70949D
+}
+
+.sidebar-date-entry-link:hover {
+    color: #FF914D;
+}
