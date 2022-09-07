@@ -1,15 +1,3 @@
-.alldogs-container {
-    background-color: #FF914D;
-    height: 100vh;
-    margin-top: 40px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: "Capsule Sans Display", system-ui, -apple-system,
-        BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-}
-
 .alldogs-title {
     margin-top: 8%;
     color: white;
@@ -25,10 +13,6 @@
     flex-wrap: wrap;
 
 }
-
-
-
-
 
 .alldog-dogcard {
     display: flex;

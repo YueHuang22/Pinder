@@ -11,25 +11,17 @@ playdate_routes = Blueprint('playdates', __name__)
 @login_required
 def get_playdates():
     dogs = current_user.dogs
-    dog_dates = {}
+    playdates = []
     for dog in dogs:
-        dates = {"future_dates": [], "requests": []}
         for date in dog.playdates_sent:
-            if date.status == "Approved":
-                # TODO: filter out past dates
-                dates['future_dates'].append(
-                    date.to_dict()
-                )
-
+            date_details = date.to_dict_no_additions()
+            date_details["playmate"] = date.receiver.to_dict()
+            playdates.append(date_details)
         for date in dog.playdates_received:
-            if date.status == "Approved":
-                dates['future_dates'].append(date.to_dict())
-            elif date.status == "Pending":
-                dates["requests"].append(date.to_dict())
-
-        dog_dates[dog.id] = dates
-
-    return {"dogs": dog_dates}
+            date_details = date.to_dict_no_additions()
+            date_details["playmate"] = date.sender.to_dict()
+            playdates.append(date_details)
+    return {"playdates": playdates}
 
 
 @playdate_routes.route('/<int:id>')
@@ -56,11 +48,14 @@ def create_playdate():
         new_playdate = Playdate(time=data['time'],
                                 location=data['location'],
                                 detail=data['detail'],
-                                status=data['status'],
-                                owner_id=user.id)
+                                status="Pending",
+                                sender_pet_id=data['sender_pet_id'],
+                                receiver_pet_id=data['receiver_pet_id'])
         db.session.add(new_playdate)
         db.session.commit()
-        return new_playdate.to_dict()
+        date_details = new_playdate.to_dict_no_additions()
+        date_details["playmate"] = new_playdate.receiver.to_dict()
+        return date_details
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
@@ -78,12 +73,22 @@ def edit_playdate(id):
         playdate.time = data['time']
         playdate.location = data['location']
         playdate.detail = data['detail']
-        playdate.status = data['status'],
         db.session.commit()
-        return playdate.to_dict()
+        date_details = playdate.to_dict_no_additions()
+        date_details["playmate"] = playdate.receiver.to_dict()
+        return date_details
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
+@playdate_routes.route('/<int:id>/approve', methods=["PUT"])
+@login_required
+def approve_playdate(id):
+    playdate = Playdate.query.get(id)
+    playdate.status = "Approved"
+    db.session.commit()
+    date_details = playdate.to_dict_no_additions()
+    date_details["playmate"] = playdate.sender.to_dict()
+    return date_details
 
 @playdate_routes.route('/<int:id>', methods=["DELETE"])
 @login_required

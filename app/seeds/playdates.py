@@ -13,8 +13,8 @@ def seed_playdates():
     )
 
     p2 = Playdate(
-        sender_pet_id=1,
-        receiver_pet_id=4,
+        sender_pet_id=4,
+        receiver_pet_id=1,
         time=datetime(2022, 9, 4, 9, 0,),
         location="180 Morgan street",
         detail="Monthly catchup",
