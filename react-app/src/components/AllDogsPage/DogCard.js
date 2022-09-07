@@ -25,12 +25,18 @@ const DogCard = ({ dog }) => {
           setShowModal(true);
         }}
       >
-        <div className="alldog-cardimage">
+        <div className="alldog-cardimage-div">
           <img className="alldog-dogimage" alt="dog" src={dog.imageUrl}></img>
         </div>
 
         <div className="alldog-cardtext">
-          <div>{dog.name}</div>
+          <div className="alldog-cardtext-name">{dog.name}</div>
+          <div className="alldog-cardtext-other">
+            I weight: {dog.weight} lbs
+          </div>
+          <div className="alldog-cardtext-other">
+            My energy level: {dog.energyLevel}
+          </div>
         </div>
       </div>
 

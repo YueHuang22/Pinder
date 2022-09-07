@@ -113,7 +113,7 @@ export const createOneDog = (payload) => async (dispatch) => {
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
-      return data.errors;
+      throw data.errors;
     }
   } else {
     return ["An error occurred. Please try again."];

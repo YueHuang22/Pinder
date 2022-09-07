@@ -36,7 +36,11 @@ function AddDogForm() {
         description,
         image_url,
       })
-    ).then((dog) => history.push(`/dogs/${dog.id}`));
+    )
+      .then((dog) => history.push(`/dogs/${dog.id}`))
+      .catch((errors) => {
+        setErrors(errors);
+      });
     // if (data) {
     //     setErrors(data)
     // }
@@ -80,7 +84,6 @@ function AddDogForm() {
           type="number"
           value={weight}
           onChange={(e) => setWeight(e.target.value)}
-          required
         />
 
         <div className="add-dog-form-title">
@@ -92,7 +95,6 @@ function AddDogForm() {
           value={breed}
           onChange={(e) => setBreed(e.target.value)}
           maxlength="50"
-          required
         />
 
         <div className="add-dog-form-title">
@@ -152,7 +154,6 @@ function AddDogForm() {
           value={image_url}
           onChange={(e) => setImageUrl(e.target.value)}
           maxlength="500"
-          required
         />
 
         <div className="add-dog-form-button-container">
