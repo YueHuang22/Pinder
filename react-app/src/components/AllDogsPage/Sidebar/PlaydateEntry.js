@@ -19,7 +19,10 @@ export const FutureDate = ({ date }) => {
 
       <div className="sidebar-date-entry-text">
         A date with{" "}
-        <a onClick={() => history.push(`/dogs/${date.playmate.id}`)}>
+        <a
+          className="sidebar-date-entry-link"
+          onClick={() => history.push(`/dogs/${date.playmate.id}`)}
+        >
           {date.playmate.name}
         </a>{" "}
         on {new Date(date.time).toLocaleDateString()}
@@ -59,7 +62,10 @@ export const RequestReceived = ({ date }) => {
 
       <div className="sidebar-date-entry-text">
         <div>
-          <a onClick={() => history.push(`/dogs/${date.playmate.id}`)}>
+          <a
+            className="sidebar-date-entry-link"
+            onClick={() => history.push(`/dogs/${date.playmate.id}`)}
+          >
             {date.playmate.name}
           </a>{" "}
           wants to play with you on {new Date(date.time).toLocaleDateString()}
@@ -108,7 +114,10 @@ export const RequestSent = ({ date }) => {
       <div className="sidebar-date-entry-text">
         <div>
           Waiting for{" "}
-          <a onClick={() => history.push(`/dogs/${date.playmate.id}`)}>
+          <a
+            className="sidebar-date-entry-link"
+            onClick={() => history.push(`/dogs/${date.playmate.id}`)}
+          >
             {date.playmate.name}
           </a>{" "}
           to accept playdate request on{" "}

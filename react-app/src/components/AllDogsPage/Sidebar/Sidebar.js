@@ -27,6 +27,7 @@ const Sidebar = () => {
 
   return (
     <div class="sidebar-content">
+      <div className="sidebar-top">MY DOGS</div>
       {dogs.map((dog) => (
         <DogEntry
           dog={dog}

@@ -10,7 +10,8 @@ dog_routes = Blueprint('dogs', __name__)
 @dog_routes.route('')
 @login_required
 def get_dogs():
-    dogs = Dog.query.all()
+    mydogs = current_user.dogs
+    dogs = Dog.query.filter(Dog.id.notin_([dog.id for dog in mydogs])).all()
     return {'dogs': [dog.to_dict() for dog in dogs]}
 
 
