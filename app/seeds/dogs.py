@@ -38,7 +38,7 @@ def seed_dogs():
         fixed=True,
         energy_level='High',
         description='',
-        image_url='https://i.pinimg.com/originals/0a/66/80/0a6680651b7139d63e66b95f5e376151.jpg',
+        image_url='https://i.imgur.com/D3rIL7X.jpg',
         owner_id=2
     )
 
@@ -51,7 +51,7 @@ def seed_dogs():
         fixed=True,
         energy_level='Low',
         description='',
-        image_url='https://i.pinimg.com/originals/0a/66/80/0a6680651b7139d63e66b95f5e376151.jpg',
+        image_url='https://i.imgur.com/BRKultc.jpg',
         owner_id=3
     )
 
@@ -64,7 +64,7 @@ def seed_dogs():
         fixed=True,
         energy_level='High',
         description='',
-        image_url='https://i.pinimg.com/originals/0a/66/80/0a6680651b7139d63e66b95f5e376151.jpg',
+        image_url='https://i.imgur.com/VWRVtZh.jpg',
         owner_id=4
     )
 
@@ -77,7 +77,7 @@ def seed_dogs():
         fixed=True,
         energy_level='Medium',
         description='',
-        image_url='https://i.pinimg.com/originals/0a/66/80/0a6680651b7139d63e66b95f5e376151.jpg',
+        image_url='https://i.imgur.com/YpBNLHk.jpg',
         owner_id=4
     )
 
@@ -90,7 +90,7 @@ def seed_dogs():
         fixed=False,
         energy_level='High',
         description='',
-        image_url='https://i.pinimg.com/originals/0a/66/80/0a6680651b7139d63e66b95f5e376151.jpg',
+        image_url='https://i.imgur.com/jHUMcnR.jpg',
         owner_id=5
     )
     
@@ -103,7 +103,7 @@ def seed_dogs():
         fixed=True,
         energy_level='High',
         description='',
-        image_url='https://i.pinimg.com/originals/0a/66/80/0a6680651b7139d63e66b95f5e376151.jpg',
+        image_url='https://i.imgur.com/kJiYx1x.jpg',
         owner_id=6
     )
     
@@ -116,7 +116,7 @@ def seed_dogs():
         fixed=True,
         energy_level='High',
         description='',
-        image_url='https://i.pinimg.com/originals/0a/66/80/0a6680651b7139d63e66b95f5e376151.jpg',
+        image_url='https://i.imgur.com/znyDRxa.jpg',
         owner_id=7
     )
     
@@ -129,7 +129,7 @@ def seed_dogs():
         fixed=True,
         energy_level='Low',
         description='',
-        image_url='https://i.pinimg.com/originals/0a/66/80/0a6680651b7139d63e66b95f5e376151.jpg',
+        image_url='https://i.imgur.com/eiVOEk6.jpg',
         owner_id=8
     )
 
