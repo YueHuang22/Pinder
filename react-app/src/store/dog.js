@@ -151,7 +151,7 @@ export const deleteOneDog = (id) => async (dispatch) => {
 };
 
 // Reducer
-const initialState = { dogs: [], myDogs: [], currentDog: null };
+const initialState = { dogs: [], myDogs: [] };
 
 export default function dogRuducer(state = initialState, action) {
   let newState;
@@ -169,16 +169,24 @@ export default function dogRuducer(state = initialState, action) {
       newState = { ...state, currentDog: action.payload };
       return newState;
     case CREATE_DOG:
-      let dogs = state.dogs;
-      newState = { ...state, dogs: [...dogs, action.payload] };
+      newState = {
+        ...state,
+        dogs: [...state.dogs, action.payload],
+        myDogs: [...state.myDogs, action.payload],
+      };
       return newState;
-    // case EDIT_DOG:
-    //     newState = { ...state, currentDog: action.payload }
-    //     return newState
     case EDIT_DOG:
-      const dog = state.dogs.find((dog) => dog.id === +action.payload.id);
-      let newDogs = state.dogs.filter((d) => d !== dog);
-      newState = { dogs: newDogs, currentDog: action.payload };
+      const newMyDogs = state.myDogs.filter(
+        (dog) => dog.id !== action.payload.dog.id
+      );
+      newMyDogs.push(action.payload.dog);
+      newMyDogs.sort((a, b) => (a.id < b.id ? -1 : 1));
+      const newDogs = state.dogs.filter(
+        (dog) => dog.id !== action.payload.dog.id
+      );
+      newDogs.push(action.payload.dog);
+      newDogs.sort((a, b) => (a.id < b.id ? -1 : 1));
+      newState = { ...state, dogs: newDogs, myDogs: newMyDogs };
       return newState;
     case DELETE_DOG:
       const new_dogs = state.dogs.filter((d) => d.id !== +action.payload);

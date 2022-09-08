@@ -5,7 +5,7 @@ from datetime import datetime
 
 def validate_time(form, field):
     if field.data <= datetime.now():
-        raise ValidationError("Please enter a future time")
+        raise ValidationError("Please enter a future time.")
 
 class EditPlaydateForm(FlaskForm):
     location = StringField('location', validators=[DataRequired(message="Please enter location for playdate.")])

@@ -72,7 +72,7 @@ def edit_dog(id):
         dog.name = data['name']
         dog.birthday = data['birthday']
         dog.weight = data['weight']
-        dog.breed = data['breed'],
+        dog.breed = data['breed']
         dog.gender = data['gender']
         dog.fixed = data['fixed']
         dog.energy_level = data['energy_level']

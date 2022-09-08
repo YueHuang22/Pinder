@@ -10,10 +10,6 @@ const EditDogModal = () => {
   const { dogId } = useParams();
   const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    setShowModal(location.pathname === `/dogs/${dogId}/edit`);
-  }, [location.pathname]);
-
   return (
     <>
       <button
@@ -28,11 +24,10 @@ const EditDogModal = () => {
       {showModal && (
         <Modal
           onClose={() => {
-            history.push(`/dogs/${dogId}`);
             setShowModal(false);
           }}
         >
-          <EditDogForm />
+          <EditDogForm onSubmit={() => setShowModal(false)} />
         </Modal>
       )}
     </>
