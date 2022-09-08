@@ -12,6 +12,7 @@ This is a capstone fullstack project. * [Click here to view Project Live Site](h
 
 
 
-* Landing page
+### Landing page
+![image](https://user-images.githubusercontent.com/93162290/189170501-b23f361b-4db2-4db9-89f6-c34b730aaba3.png)
 
 
