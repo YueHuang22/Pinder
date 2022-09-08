@@ -23,7 +23,7 @@ function AddDogForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    // const data = await dispatch(createOneDog({ name, birthday, weight, breed, gender, fixed, energy_level, description, image_url, }))
+
     await dispatch(
       createOneDog({
         name,
@@ -41,9 +41,6 @@ function AddDogForm() {
       .catch((errors) => {
         setErrors(errors);
       });
-    // if (data) {
-    //     setErrors(data)
-    // }
   };
 
   return (
@@ -56,18 +53,18 @@ function AddDogForm() {
         </div>
 
         <div className="add-dog-form-title">
-          <label> Name:</label>
+          <label> Name *</label>
         </div>
         <input
           className="add-dog-form-input"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          maxlength="35"
+          maxLength="35"
         ></input>
 
         <div className="add-dog-form-title">
-          <label>Birthday:</label>
+          <label>Birthday *</label>
         </div>
         <input
           className="add-dog-form-input"
@@ -77,7 +74,7 @@ function AddDogForm() {
         />
 
         <div className="add-dog-form-title">
-          <label>Weight:</label>
+          <label>Weight *</label>
         </div>
         <input
           className="add-dog-form-input"
@@ -87,18 +84,18 @@ function AddDogForm() {
         />
 
         <div className="add-dog-form-title">
-          <label>Breed: </label>
+          <label>Breed *</label>
         </div>
         <input
           className="add-dog-form-input"
           type="text"
           value={breed}
           onChange={(e) => setBreed(e.target.value)}
-          maxlength="50"
+          maxLength="50"
         />
 
         <div className="add-dog-form-title">
-          <label>Gender:</label>
+          <label>Gender *</label>
         </div>
         <select
           className="add-dog-form-input"
@@ -110,19 +107,19 @@ function AddDogForm() {
         </select>
 
         <div className="add-dog-form-title">
-          <label>Spayed or Neutered: </label>
+          <label>Spayed or Neutered * </label>
         </div>
         <select
           className="add-dog-form-input"
           value={fixed}
           onChange={(e) => setFixed(e.target.value)}
         >
-          <option value="Spayed/Neutered">Spayed/Neutered</option>
-          <option value="Not fixed">Not fixed</option>
+          <option value="Spayed/Neutered">Yes</option>
+          <option value="Not fixed">No</option>
         </select>
 
         <div className="add-dog-form-title">
-          <label>Energy Level: </label>
+          <label>Energy Level *</label>
         </div>
         <select
           className="add-dog-form-input"
@@ -135,25 +132,25 @@ function AddDogForm() {
         </select>
 
         <div className="add-dog-form-title">
-          <label>Description:</label>
+          <label>Description</label>
         </div>
         <input
           className="add-dog-form-input"
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          maxlength="300"
+          maxLength="300"
         />
 
         <div className="add-dog-form-title">
-          <label>Image: </label>
+          <label>Image *</label>
         </div>
         <input
           className="add-dog-form-input"
           type="text"
           value={image_url}
           onChange={(e) => setImageUrl(e.target.value)}
-          maxlength="500"
+          maxLength="500"
         />
 
         <div className="add-dog-form-button-container">

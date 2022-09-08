@@ -22,23 +22,32 @@ const DogDetailModal = ({ dog, onClose }) => {
   return (
     <Modal onClose={onClose}>
       <div className="dog-detail-modal-container">
-        <div>
-          <img style={{ height: 500 }} alt="dog" src={dog.imageUrl}></img>
+        <div className="dog-detail-img-div">
+          <img className="dog-detail-img" alt="dog" src={dog.imageUrl}></img>
         </div>
 
         <div className="dog-detail-modal-details">
-          <div>
+          <div className="dog-detail-text">
             <h1>
               {dog.name} {getGenderSign(dog.gender)}
             </h1>
-            <div>Owner: {dog.owner.firstName}</div>
-            <div>Birthday: {new Date(dog.birthday).toLocaleDateString()}</div>
-            <div>Breed: {dog.breed}</div>
-            <div>Energy level: {dog.energyLevel}</div>
-            <div>Fixed: {dog.fixed}</div>
-            <div></div>
-            <div>Weight: {dog.weight} lbs</div>
-            <div>{dog.description}</div>
+            <div className="dog-detail-owner">Owner: {dog.owner.firstName}</div>
+            <div className="dog-detail-other">
+              Birthday: {new Date(dog.birthday).toLocaleDateString()}
+            </div>
+            <div className="dog-detail-other">Breed: {dog.breed}</div>
+            <div className="dog-detail-other">
+              Energy level: {dog.energyLevel}
+            </div>
+            <div className="dog-detail-other">Weight: {dog.weight} lbs</div>
+            <div className="dog-detail-other">
+              Neutered/Spayed: {dog.fixed ? "Yes" : "No"}
+            </div>
+            {dog.description && (
+              <div className="dog-detail-other">
+                About {dog.name}: {dog.description}
+              </div>
+            )}
           </div>
 
           {isMyDog ? (
@@ -53,7 +62,9 @@ const DogDetailModal = ({ dog, onClose }) => {
               </div>
             </>
           ) : (
-            <NewPlaydateModal receiverPetId={dog.id} />
+            <div className="detail-button-holder">
+              <NewPlaydateModal receiverPetId={dog.id} />
+            </div>
           )}
         </div>
       </div>
