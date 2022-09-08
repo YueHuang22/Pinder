@@ -23,7 +23,7 @@ function AddDogForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    // const data = await dispatch(createOneDog({ name, birthday, weight, breed, gender, fixed, energy_level, description, image_url, }))
+
     await dispatch(
       createOneDog({
         name,
@@ -41,9 +41,6 @@ function AddDogForm() {
       .catch((errors) => {
         setErrors(errors);
       });
-    // if (data) {
-    //     setErrors(data)
-    // }
   };
 
   return (

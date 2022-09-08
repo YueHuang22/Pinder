@@ -53,53 +53,53 @@ const NewPlaydateModal = ({ receiverPetId }) => {
               </div>
 
               <div className="request-form-title">
-                <label>Location:</label>
+                <label>Location *</label>
               </div>
               <input
                 className="request-form-input"
                 name="location"
                 type="text"
                 placeholder="Location"
-                required
+                maxLength="300"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
               />
 
               <div className="request-form-title">
-                <label>Time:</label>
+                <label>
+                  Time * (Please use format: 10/22/2022, 2:30:00 PM)
+                </label>
               </div>
               <input
                 className="request-form-input"
                 name="time"
                 type="text"
                 placeholder="Time"
-                required
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
               />
 
               <div className="request-form-title">
-                <label>Details:</label>
+                <label>Detail *</label>
               </div>
               <input
                 className="request-form-input"
                 name="detail"
                 type="text"
                 placeholder="Details"
-                required
+                maxLength="300"
                 value={detail}
                 onChange={(e) => setDetail(e.target.value)}
               />
 
               <div className="request-form-title">
-                <label>Sender:</label>
+                <label>Sender *</label>
               </div>
               <select
                 className="request-form-input"
                 name="sender_pet_id"
                 value={senderPetId}
                 onChange={(e) => setSenderPetId(e.target.value)}
-                required
               >
                 <option value=""></option>
                 {myDogs.map((myDog) => (

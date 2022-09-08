@@ -45,8 +45,8 @@ def create_playdate():
     if form.validate_on_submit():
         data = form.data
         user = current_user
-        new_playdate = Playdate(time=data['time'],
-                                location=data['location'],
+        new_playdate = Playdate(location=data['location'],
+                                time=data['time'],
                                 detail=data['detail'],
                                 status="Pending",
                                 sender_pet_id=data['sender_pet_id'],
@@ -70,8 +70,8 @@ def edit_playdate(id):
     if form.validate_on_submit():
         data = form.data
         playdate = Playdate.query.get(id)
-        playdate.time = data['time']
         playdate.location = data['location']
+        playdate.time = data['time']
         playdate.detail = data['detail']
         db.session.commit()
         date_details = playdate.to_dict_no_additions()

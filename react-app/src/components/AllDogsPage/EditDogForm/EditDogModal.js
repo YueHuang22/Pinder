@@ -19,7 +19,6 @@ const EditDogModal = () => {
       <button
         className="detail-edit-button"
         onClick={() => {
-          //   history.push(`/dogs/${dogId}/edit`);
           setShowModal(true);
         }}
       >

@@ -14,7 +14,6 @@ function EditDogForm() {
   const history = useHistory();
   const { dogId } = useParams();
   const [isLoaded, setIsLoaded] = useState(false);
-  //const sessionUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
     setIsLoaded(false);
@@ -57,6 +56,7 @@ function EditDogForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
+
     await dispatch(
       editOneDog(dogId, {
         name,
@@ -69,7 +69,11 @@ function EditDogForm() {
         description,
         image_url,
       })
-    ).then(() => history.push(`/dogs/${dogId}`));
+    )
+      .then(() => history.push(`/dogs/${dogId}`))
+      .catch((errors) => {
+        setErrors(errors);
+      });
   };
 
   return (
@@ -92,7 +96,6 @@ function EditDogForm() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               maxlength="35"
-              required
             ></input>
 
             <div className="add-dog-form-title">
@@ -103,7 +106,6 @@ function EditDogForm() {
               type="date"
               value={birthday}
               onChange={(e) => setBirthday(e.target.value)}
-              required
             />
 
             <div className="add-dog-form-title">
@@ -114,7 +116,6 @@ function EditDogForm() {
               type="number"
               value={weight}
               onChange={(e) => setWeight(e.target.value)}
-              required
             />
 
             <div className="add-dog-form-title">
@@ -126,7 +127,6 @@ function EditDogForm() {
               value={breed}
               onChange={(e) => setBreed(e.target.value)}
               maxlength="50"
-              required
             />
 
             <div className="add-dog-form-title">
@@ -186,7 +186,6 @@ function EditDogForm() {
               value={image_url}
               onChange={(e) => setImageUrl(e.target.value)}
               maxlength="500"
-              required
             />
 
             <div className="add-dog-form-button-container">

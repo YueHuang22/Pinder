@@ -74,6 +74,7 @@ export const editOnePlaydate = (id, payload) => async (dispatch) => {
   if (response.ok) {
     const playdate = await response.json();
     dispatch(editPlaydate(playdate));
+    return;
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {

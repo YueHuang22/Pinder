@@ -57,41 +57,42 @@ const EditPlaydateModal = ({ date }) => {
               </div>
 
               <div className="request-form-title">
-                <label>Location:</label>
+                <label>Location *</label>
               </div>
               <input
                 className="request-form-input"
                 name="location"
                 type="text"
                 placeholder="Location"
-                required
                 value={location}
+                maxLength="300"
                 onChange={(e) => setLocation(e.target.value)}
               />
 
               <div className="request-form-title">
-                <label>Time:</label>
+                <label>
+                  Time * (Please use format: 10/22/2022, 2:30:00 PM)
+                </label>
               </div>
               <input
                 className="request-form-input"
                 name="time"
                 type="text"
                 placeholder="Time"
-                required
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
               />
 
               <div className="request-form-title">
-                <label>Details:</label>
+                <label>Detail *</label>
               </div>
               <input
                 className="request-form-input"
                 name="detail"
                 type="text"
-                placeholder="Details"
-                required
+                placeholder="Detail"
                 value={detail}
+                maxLength="300"
                 onChange={(e) => setDetail(e.target.value)}
               />
 
