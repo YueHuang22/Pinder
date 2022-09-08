@@ -68,7 +68,7 @@ const SignUpForm = () => {
           name="email"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
-          maxLength="100"
+          maxLength="255"
         ></input>
 
         <div className="signup-form-title">
@@ -80,7 +80,7 @@ const SignUpForm = () => {
           name="password"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
-          maxLength="100"
+          maxLength="255"
         ></input>
 
         <div className="signup-form-title">
@@ -92,7 +92,7 @@ const SignUpForm = () => {
           name="repeat_password"
           onChange={(e) => setRepeatPassword(e.target.value)}
           value={repeatPassword}
-          maxLength="100"
+          maxLength="255"
         ></input>
 
         <div className="signup-form-button-container">
