@@ -44,9 +44,7 @@ const DogDetailModal = ({ dog, onClose }) => {
               Neutered/Spayed: {dog.fixed ? "Yes" : "No"}
             </div>
             {dog.description && (
-              <div className="dog-detail-other">
-                About {dog.name}: {dog.description}
-              </div>
+              <div className="dog-detail-detail">{dog.description}</div>
             )}
           </div>
 
