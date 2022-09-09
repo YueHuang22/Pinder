@@ -13,8 +13,12 @@ export const FutureDate = ({ date }) => {
       <div>
         <img
           className="sidebar-date-entry-img"
+          onError={({ target }) => {
+            target.onError = null;
+            target.src =
+              "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg";
+          }}
           src={date.playmate.imageUrl}
-          alt={date.playmate.name}
         />
       </div>
       <PlaydateTooltip playdate={date}>
@@ -57,8 +61,12 @@ export const RequestReceived = ({ date }) => {
       <div>
         <img
           className="sidebar-date-entry-img"
+          onError={({ target }) => {
+            target.onError = null;
+            target.src =
+              "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg";
+          }}
           src={date.playmate.imageUrl}
-          alt={date.playmate.name}
         />
       </div>
 
@@ -111,8 +119,12 @@ export const RequestSent = ({ date }) => {
       <div>
         <img
           className="sidebar-date-entry-img"
+          onError={({ target }) => {
+            target.onError = null;
+            target.src =
+              "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg";
+          }}
           src={date.playmate.imageUrl}
-          alt={date.playmate.name}
         />
       </div>
       <div className="sidebar-date-entry-text">

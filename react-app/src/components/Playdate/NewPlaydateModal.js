@@ -60,7 +60,7 @@ const NewPlaydateModal = ({ receiverPetId }) => {
                 name="location"
                 type="text"
                 placeholder="Location"
-                maxLength="300"
+                maxLength="255"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
               />
@@ -87,7 +87,7 @@ const NewPlaydateModal = ({ receiverPetId }) => {
                 name="detail"
                 type="text"
                 placeholder="Details"
-                maxLength="300"
+                maxLength="100"
                 value={detail}
                 onChange={(e) => setDetail(e.target.value)}
               />

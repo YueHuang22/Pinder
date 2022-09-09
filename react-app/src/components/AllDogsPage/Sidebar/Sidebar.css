@@ -111,19 +111,22 @@
 
 .playdate-tooltip .playdate-tooltip-content {
     visibility: hidden;
-    width: 200px;
-    background-color: gray;
+    width: 235px;
+    background-color: #D3B6A7;
     color: #fff;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 4px;
     padding: 10px 5px;
     position: absolute;
     z-index: 1;
     bottom: 125%;
     left: 25%;
-    margin-left: -60px;
+    margin-left: -50px;
     opacity: 0;
-    /* transition: opacity 0.7s; */
+    transition: opacity 0.7s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .playdate-tooltip .playdate-tooltip-content::after {
@@ -134,10 +137,19 @@
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: gray transparent transparent transparent;
+    border-color: #D3B6A7 transparent transparent transparent;
 }
 
 .playdate-tooltip:hover .playdate-tooltip-content {
     visibility: visible;
     opacity: 1;
+}
+
+.tooltip-wrap {
+    max-width: 80%;
+    overflow-wrap: break-word;
+}
+
+.tooltip-title {
+    color: #F47650;
 }

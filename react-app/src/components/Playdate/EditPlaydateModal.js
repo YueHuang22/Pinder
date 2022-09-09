@@ -65,7 +65,7 @@ const EditPlaydateModal = ({ date }) => {
                 type="text"
                 placeholder="Location"
                 value={location}
-                maxLength="300"
+                maxLength="255"
                 onChange={(e) => setLocation(e.target.value)}
               />
 
@@ -92,7 +92,7 @@ const EditPlaydateModal = ({ date }) => {
                 type="text"
                 placeholder="Detail"
                 value={detail}
-                maxLength="300"
+                maxLength="100"
                 onChange={(e) => setDetail(e.target.value)}
               />
 
