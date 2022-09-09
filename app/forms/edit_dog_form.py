@@ -6,7 +6,7 @@ from datetime import date
 def is_img(form, field):
     image_url = field.data
     if (image_url):
-        if ('.jpg'not in image_url) and ('.jpeg'not in image_url) and ('.png'not in image_url) and ('.webp'not in image_url) and ('.gif'not in image_url) and ('.svg' not in image_url):
+        if (('.jpg'not in image_url) and ('.jpeg'not in image_url) and ('.png'not in image_url) and ('.webp'not in image_url) and ('.gif'not in image_url) and ('.svg' not in image_url)) or ('https' not in image_url):
             raise ValidationError("Invalid image URL.")
         
 def validate_birthday(form, field):

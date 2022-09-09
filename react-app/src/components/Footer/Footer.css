@@ -1,5 +1,6 @@
 .footer-container {
     width: 100%;
+    min-width: 1036px;
     height: 160px;
     margin-top: 3rem;
     background-color: #ECE9E6;

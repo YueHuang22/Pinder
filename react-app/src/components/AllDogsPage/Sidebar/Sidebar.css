@@ -111,7 +111,7 @@
 
 .playdate-tooltip .playdate-tooltip-content {
     visibility: hidden;
-    width: 250px;
+    width: 200px;
     background-color: gray;
     color: #fff;
     text-align: center;
@@ -123,7 +123,7 @@
     left: 25%;
     margin-left: -60px;
     opacity: 0;
-    transition: opacity 0.7s;
+    /* transition: opacity 0.7s; */
 }
 
 .playdate-tooltip .playdate-tooltip-content::after {
@@ -139,6 +139,5 @@
 
 .playdate-tooltip:hover .playdate-tooltip-content {
     visibility: visible;
-    /* opacity: 1; */
     opacity: 80%;
 }
