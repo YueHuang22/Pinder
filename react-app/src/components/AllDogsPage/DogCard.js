@@ -25,7 +25,15 @@ const DogCard = ({ dog, hidden = false }) => {
           }}
         >
           <div className="alldog-cardimage-div">
-            <img className="alldog-dogimage" alt="dog" src={dog.imageUrl}></img>
+            <img
+              className="alldog-dogimage"
+              onError={({ target }) => {
+                target.onError = null;
+                target.src =
+                  "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg";
+              }}
+              src={dog.imageUrl}
+            ></img>
           </div>
 
           <div className="alldog-cardtext">

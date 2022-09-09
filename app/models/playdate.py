@@ -1,5 +1,5 @@
 from app.models.db import db
-
+from dateutil import tz
 
 class Playdate(db.Model):
     __tablename__ = 'playdates'
@@ -23,7 +23,7 @@ class Playdate(db.Model):
         return {
             'id': self.id,
             'location': self.location,
-            'time': self.time,
+            'time': self.time.replace(tzinfo=tz.gettz('US/Eastern')),
             'detail': self.detail,
             'status': self.status,
             'senderPetId': self.sender_pet_id,
@@ -36,7 +36,7 @@ class Playdate(db.Model):
         return {
             'id': self.id,
             'location': self.location,
-            'time': self.time,
+            'time': self.time.replace(tzinfo=tz.gettz('US/Eastern')),
             'detail': self.detail,
             'status': self.status,
             'senderPetId': self.sender_pet_id,

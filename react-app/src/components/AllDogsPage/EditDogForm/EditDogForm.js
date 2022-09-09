@@ -19,7 +19,7 @@ function EditDogForm({ onSubmit = () => {} }) {
   );
 
   const [name, setName] = useState(dog.name);
-  const [birthday, setBirthday] = useState(formatDate(new Date(dog.birthday)));
+  const [birthday, setBirthday] = useState(dog.birthday);
   const [weight, setWeight] = useState(dog.weight);
   const [breed, setBreed] = useState(dog.breed);
   const [gender, setGender] = useState(dog.gender);
@@ -70,7 +70,7 @@ function EditDogForm({ onSubmit = () => {} }) {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            maxLength="35"
+            maxLength="15"
           ></input>
 
           <div className="add-dog-form-title">
@@ -101,7 +101,7 @@ function EditDogForm({ onSubmit = () => {} }) {
             type="text"
             value={breed}
             onChange={(e) => setBreed(e.target.value)}
-            maxLength="50"
+            maxLength="35"
           />
 
           <div className="add-dog-form-title">

@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import PlaydateTooltip from "./PlaydateTooltip";
 import DateEntry, {
   FutureDate,
   RequestReceived,
@@ -16,7 +17,14 @@ const DogEntry = ({ dog, playdates }) => {
         onClick={() => history.push(`/dogs/${dog.id}`)}
       >
         <div className="sidebar-dog-img">
-          <img src={dog.imageUrl} alt={dog.name} />
+          <img
+            onError={({ target }) => {
+              target.onError = null;
+              target.src =
+                "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg";
+            }}
+            src={dog.imageUrl}
+          ></img>
         </div>
         <div>{dog.name}</div>
       </div>

@@ -9,7 +9,7 @@ def validate_time(form, field):
 
 class EditPlaydateForm(FlaskForm):
     location = StringField('location', validators=[DataRequired(message="Please enter location for playdate.")])
-    time = DateTimeField('time', format="%m/%d/%Y, %H:%M:%S %p", validators=[DataRequired(message="Please enter time for playdate."), validate_time])
+    time = DateTimeField('time', format="%m/%d/%Y, %I:%M:%S %p", validators=[DataRequired(message="Please enter time for playdate."), validate_time])
     detail = StringField('detail', validators=[DataRequired(message="Please enter detail for playdate.")])
 
         

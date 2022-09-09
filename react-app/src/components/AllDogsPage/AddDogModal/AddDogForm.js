@@ -60,7 +60,7 @@ function AddDogForm() {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          maxLength="35"
+          maxLength="15"
         ></input>
 
         <div className="add-dog-form-title">
@@ -91,7 +91,7 @@ function AddDogForm() {
           type="text"
           value={breed}
           onChange={(e) => setBreed(e.target.value)}
-          maxLength="50"
+          maxLength="35"
         />
 
         <div className="add-dog-form-title">
