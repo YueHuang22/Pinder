@@ -139,5 +139,5 @@
 
 .playdate-tooltip:hover .playdate-tooltip-content {
     visibility: visible;
-    opacity: 80%;
+    opacity: 1;
 }
