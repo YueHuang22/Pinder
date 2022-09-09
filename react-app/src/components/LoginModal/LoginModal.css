@@ -69,6 +69,7 @@
     font-size: 14px;
     font-weight: 300;
     padding: 10px 40px;
+    cursor: pointer;
 }
 
 .login-form-button:hover {
