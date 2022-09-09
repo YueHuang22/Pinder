@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import EditPlaydateModal from "../../Playdate/EditPlaydateModal";
 import { approveOnePlaydate, deleteOnePlaydate } from "../../../store/playdate";
 import { useDispatch } from "react-redux";
+import PlaydateTooltip from "./PlaydateTooltip";
 
 export const FutureDate = ({ date }) => {
   const history = useHistory();
@@ -16,17 +17,18 @@ export const FutureDate = ({ date }) => {
           alt={date.playmate.name}
         />
       </div>
-
-      <div className="sidebar-date-entry-text">
-        A date with{" "}
-        <a
-          className="sidebar-date-entry-link"
-          onClick={() => history.push(`/dogs/${date.playmate.id}`)}
-        >
-          {date.playmate.name}
-        </a>{" "}
-        on {new Date(date.time).toLocaleDateString()}
-      </div>
+      <PlaydateTooltip playdate={date}>
+        <div className="sidebar-date-entry-text">
+          A date with{" "}
+          <a
+            className="sidebar-date-entry-link"
+            onClick={() => history.push(`/dogs/${date.playmate.id}`)}
+          >
+            {date.playmate.name}
+          </a>{" "}
+          on {new Date(date.time).toLocaleDateString()}
+        </div>
+      </PlaydateTooltip>
     </div>
   );
 };
@@ -61,15 +63,17 @@ export const RequestReceived = ({ date }) => {
       </div>
 
       <div className="sidebar-date-entry-text">
-        <div>
-          <a
-            className="sidebar-date-entry-link"
-            onClick={() => history.push(`/dogs/${date.playmate.id}`)}
-          >
-            {date.playmate.name}
-          </a>{" "}
-          wants to play with you on {new Date(date.time).toLocaleDateString()}
-        </div>
+        <PlaydateTooltip playdate={date}>
+          <div>
+            <a
+              className="sidebar-date-entry-link"
+              onClick={() => history.push(`/dogs/${date.playmate.id}`)}
+            >
+              {date.playmate.name}
+            </a>{" "}
+            wants to play with you on {new Date(date.time).toLocaleDateString()}
+          </div>
+        </PlaydateTooltip>
         <div>
           <button
             className="sidebar-date-entry-button"
@@ -112,26 +116,28 @@ export const RequestSent = ({ date }) => {
         />
       </div>
       <div className="sidebar-date-entry-text">
-        <div>
-          Waiting for{" "}
-          <a
-            className="sidebar-date-entry-link"
-            onClick={() => history.push(`/dogs/${date.playmate.id}`)}
-          >
-            {date.playmate.name}
-          </a>{" "}
-          to accept playdate request on{" "}
-          {new Date(date.time).toLocaleDateString()}
+        <PlaydateTooltip playdate={date}>
           <div>
-            <EditPlaydateModal date={date} />
-            <button
-              className="sidebar-date-entry-button"
-              onClick={clickDeletePlaydate}
+            Waiting for{" "}
+            <a
+              className="sidebar-date-entry-link"
+              onClick={() => history.push(`/dogs/${date.playmate.id}`)}
             >
-              <i class="fa-solid fa-trash"></i>
-            </button>
+              {date.playmate.name}
+            </a>{" "}
+            to accept playdate request on{" "}
+            {new Date(date.time).toLocaleDateString()}
+            <div>
+              <EditPlaydateModal date={date} />
+              <button
+                className="sidebar-date-entry-button"
+                onClick={clickDeletePlaydate}
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
           </div>
-        </div>
+        </PlaydateTooltip>
       </div>
     </div>
   );

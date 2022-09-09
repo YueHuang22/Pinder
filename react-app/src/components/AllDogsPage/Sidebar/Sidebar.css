@@ -103,3 +103,42 @@
 .sidebar-date-entry-link:hover {
     color: #FF914D;
 }
+
+.playdate-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.playdate-tooltip .playdate-tooltip-content {
+    visibility: hidden;
+    width: 250px;
+    background-color: gray;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 25%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.7s;
+}
+
+.playdate-tooltip .playdate-tooltip-content::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: gray transparent transparent transparent;
+}
+
+.playdate-tooltip:hover .playdate-tooltip-content {
+    visibility: visible;
+    /* opacity: 1; */
+    opacity: 80%;
+}

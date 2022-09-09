@@ -8,6 +8,10 @@
     align-items: center;
 }
 
+.dog-detail-img-div {
+    background-image: none;
+}
+
 .dog-detail-img {
     width: 400px;
     height: 400px;
@@ -43,6 +47,8 @@
     color: #70949D;
     font-size: 15px;
     font-weight: 500;
+    max-width: 450px;
+    overflow-wrap: break-word;
 }
 
 .detail-delete-button {

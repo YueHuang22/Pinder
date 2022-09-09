@@ -17,7 +17,7 @@ function Footer() {
         </div>
 
         <div className="footer-linkedin">
-          <div>Connect With the Developer!</div>
+          <div>Connect with the Developer!</div>
           <div>
             <div className="footer-linkedin-icons-container">
               <a
