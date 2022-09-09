@@ -18,7 +18,7 @@ class EditDogForm(FlaskForm):
                        DataRequired(message="Please enter name for your dog."), ])
   birthday = DateField('birthday', validators=[DataRequired(message="Please enter birthday for your dog."), validate_birthday])
   weight = FloatField('weight', validators=[DataRequired(message="Please enter weight for your dog."), NumberRange(
-        min=0, max=None, message='Invalid weight amount.')])
+        min=0, max=350, message='Invalid weight amount.')])
   breed = StringField('breed', validators=[DataRequired(message="Please enter breed for your dog.")])
   gender = SelectField('gender', choices=[
                          'Female', 'Male'], validators=[DataRequired(message="Please enter gender for your dog.")])

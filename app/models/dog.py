@@ -5,10 +5,10 @@ class Dog(db.Model):
     __tablename__ = 'dogs'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(35), nullable=False)
+    name = db.Column(db.String(15), nullable=False)
     birthday = db.Column(db.Date, nullable=False)
     weight = db.Column(db.Integer, nullable=False)
-    breed = db.Column(db.String(50), nullable=False)
+    breed = db.Column(db.String(35), nullable=False)
     gender = db.Column(db.String(10), nullable=False)
     fixed = db.Column(db.Boolean, nullable=False)
     energy_level = db.Column(db.String(20), nullable=False)
@@ -25,7 +25,7 @@ class Dog(db.Model):
         return {
             'id': self.id,
             'name': self.name,
-            'birthday': self.birthday,
+            'birthday': f"{self.birthday.year}-{self.birthday.month:02}-{self.birthday.day:02}",
             'weight': self.weight,
             'breed': self.breed,
             'gender': self.gender,
@@ -42,7 +42,7 @@ class Dog(db.Model):
         return {
             'id': self.id,
             'name': self.name,
-            'birthday': self.birthday,
+            'birthday': str(self.birthday),
             'weight': self.weight,
             'breed': self.breed,
             'gender': self.gender,

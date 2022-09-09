@@ -56,7 +56,7 @@ const LoginForm = () => {
             placeholder="Email"
             value={email}
             onChange={updateEmail}
-            maxLength="100"
+            maxLength="255"
           />
         </div>
 
@@ -71,7 +71,7 @@ const LoginForm = () => {
             placeholder="Password"
             value={password}
             onChange={updatePassword}
-            maxLength="100"
+            maxLength="255"
           />
         </div>
 

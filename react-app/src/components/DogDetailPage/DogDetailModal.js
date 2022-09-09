@@ -23,7 +23,15 @@ const DogDetailModal = ({ dog, onClose }) => {
     <Modal onClose={onClose}>
       <div className="dog-detail-modal-container">
         <div className="dog-detail-img-div">
-          <img className="dog-detail-img" alt="dog" src={dog.imageUrl}></img>
+          <img
+            className="dog-detail-img"
+            onError={({ target }) => {
+              target.onError = null;
+              target.src =
+                "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg";
+            }}
+            src={dog.imageUrl}
+          ></img>
         </div>
 
         <div className="dog-detail-modal-details">
@@ -32,9 +40,7 @@ const DogDetailModal = ({ dog, onClose }) => {
               {dog.name} {getGenderSign(dog.gender)}
             </h1>
             <div className="dog-detail-owner">Owner: {dog.owner.firstName}</div>
-            <div className="dog-detail-other">
-              Birthday: {new Date(dog.birthday).toLocaleDateString()}
-            </div>
+            <div className="dog-detail-other">Birthday: {dog.birthday}</div>
             <div className="dog-detail-other">Breed: {dog.breed}</div>
             <div className="dog-detail-other">
               Energy level: {dog.energyLevel}
@@ -44,9 +50,7 @@ const DogDetailModal = ({ dog, onClose }) => {
               Neutered/Spayed: {dog.fixed ? "Yes" : "No"}
             </div>
             {dog.description && (
-              <div className="dog-detail-other">
-                About {dog.name}: {dog.description}
-              </div>
+              <div className="dog-detail-detail">{dog.description}</div>
             )}
           </div>
 

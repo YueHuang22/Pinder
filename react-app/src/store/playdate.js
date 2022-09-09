@@ -132,7 +132,9 @@ export default function playdateRuducer(state = initialState, action) {
       const newPlaydates = state.playdates.filter(
         (d) => d.id !== action.payload.id
       );
-      newState = { playdates: [...newPlaydates, action.payload] };
+      newPlaydates.push(action.payload);
+      newPlaydates.sort((a, b) => (a.id < b.id ? -1 : 1));
+      newState = { playdates: newPlaydates };
       return newState;
     case DELETE_PLAYDATE:
       newState = {
