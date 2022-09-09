@@ -5,9 +5,9 @@ class Playdate(db.Model):
     __tablename__ = 'playdates'
 
     id = db.Column(db.Integer, primary_key=True)
-    location = db.Column(db.String(300), nullable=False)
+    location = db.Column(db.String(255), nullable=False)
     time = db.Column(db.DateTime, nullable=False)
-    detail = db.Column(db.String(300), nullable=False)
+    detail = db.Column(db.String(100), nullable=False)
     status = db.Column(db.String(20), nullable=False)
     sender_pet_id = db.Column(
         db.Integer, db.ForeignKey("dogs.id", ondelete="cascade"), nullable=False)
