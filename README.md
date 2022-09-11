@@ -27,17 +27,26 @@ Pinder is a capstone fullstack project I designed. Pinder's purpose is to connec
 
 ## Landing Page
 
-![image](https://user-images.githubusercontent.com/93162290/189170501-b23f361b-4db2-4db9-89f6-c34b730aaba3.png)
+![image](https://user-images.githubusercontent.com/93162290/189542333-9362ddcf-e7a8-4028-89b8-e9d6d5e7ccb6.png)
 
-## Main page
-![image](https://user-images.githubusercontent.com/93162290/189170752-6b59b82f-1f5f-4d7c-821a-bf05cdfb90ad.png)
+## Main Page
+![image](https://user-images.githubusercontent.com/93162290/189542381-ce0c5581-013b-4156-827b-2a879275db58.png)
+
+## Dog Detail Page
+![image](https://user-images.githubusercontent.com/93162290/189542429-dccaa34b-1ccb-43c6-acc1-682efd8b9d21.png)
+
+## Add Dog Modal
+![image](https://user-images.githubusercontent.com/93162290/189542457-0c9137ce-ba71-4ff7-9ffa-3610dbdf63bd.png)
+
+## Schedule Playdate Modal
+![image](https://user-images.githubusercontent.com/93162290/189542498-85e5138f-be92-415b-9006-39a4925f582f.png)
 
 ## Run Locally
 
-- Clone the repo
-- Open up two terminals, one for the backend, and one for the frontend
-- In the first terminal, in the root folder, run pipenv install to install the necessary dependencies, and then run pipenv run flask run
-- In the second terminal, cd into the react-app folder, run npm install to install the necessary dependencies, and then run npm start
+- Clone the repo.
+- Open up two terminals, one for the backend, and one for the frontend.
+- In the first terminal, in the root folder, run pipenv install to install the necessary dependencies, and then run pipenv run flask run.
+- In the second terminal, cd into the react-app folder, run npm install to install the necessary dependencies, and then run npm start.
 
 ## Future implementation ideas
 
