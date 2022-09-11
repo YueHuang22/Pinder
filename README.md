@@ -1,12 +1,12 @@
 # Pinder
 
-Pinder is a capstone fullstack project I designed. Pinder connects dog lovers worldwide, and helps pet parents set up doggy playdates. Dog owners can search for doggie playmates nearby, and find local dog-friendly events and meet-ups. This project is dedicated to my dogs who supported me through coding bootcamp.
+Pinder is a capstone fullstack project I designed. Pinder's purpose is to connect dog lovers worldwide, and help pet parents set up doggy playdates. Dog owners can search for doggie playmates nearby, and find local dog-friendly events and meet-ups. This project is dedicated to my dogs who supported me through coding bootcamp.
 
 **Click here to view Project Live Site:** [Pinder](https://pinder-app.herokuapp.com/)
 
 ## Wiki Links
+- [MVP Feature List](https://github.com/YueHuang22/Pinder/wiki/Feature-List)
 - [Database Schema](https://github.com/YueHuang22/Pinder/wiki/Database-Schema)
-- [Feature List](https://github.com/YueHuang22/Pinder/wiki/Feature-List)
 - [User Stories](https://github.com/YueHuang22/Pinder/wiki/User-Stories)
 
 ## Tech Stack
