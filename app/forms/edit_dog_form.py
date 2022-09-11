@@ -3,12 +3,8 @@ from wtforms import StringField, DateField, FloatField, BooleanField, SelectFiel
 from wtforms.validators import DataRequired, NumberRange, ValidationError
 from datetime import date
 
-def is_img(form, field):
-    image_url = field.data
-    if (image_url):
-        if (('.jpg'not in image_url) and ('.jpeg'not in image_url) and ('.png'not in image_url) and ('.webp'not in image_url) and ('.gif'not in image_url) and ('.svg' not in image_url)) or ('https' not in image_url):
-            raise ValidationError("Invalid image URL.")
-        
+from app.forms.create_dog_form import is_img
+
 def validate_birthday(form, field):
     if field.data >= date.today():
         raise ValidationError("Invalid birthday input.")
