@@ -22,7 +22,7 @@ class CreateDogForm(FlaskForm):
     breed = StringField('breed', validators=[DataRequired(message="Please enter breed for your dog.")])
     gender = SelectField('gender', choices=[
                          'Female', 'Male'], validators=[DataRequired(message="Please enter gender for your dog.")])
-    fixed = BooleanField("fixed", validators=[DataRequired(message="Is your dog fixed? Please enter.")])
+    fixed = BooleanField("fixed")
     energy_level = SelectField('energy_level', choices=[
         'Low', 'Medium', 'High'], validators=[DataRequired(message="Please enter energy level for your dog.")])
     description = StringField('description')

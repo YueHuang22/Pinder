@@ -16,10 +16,11 @@ const EditPlaydateModal = ({ date }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    debugger;
     const data = await dispatch(
       editOnePlaydate(playdateId, {
         location,
-        time,
+        time: time.trim(),
         detail,
       })
     );

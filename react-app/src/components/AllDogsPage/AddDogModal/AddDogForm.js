@@ -13,7 +13,7 @@ function AddDogForm() {
   const [weight, setWeight] = useState();
   const [breed, setBreed] = useState();
   const [gender, setGender] = useState("Female");
-  const [fixed, setFixed] = useState("Spayed/Neutered");
+  const [fixed, setFixed] = useState(false);
   const [energy_level, setEnergyLevel] = useState("Low");
   const [description, setDescription] = useState();
   const [image_url, setImageUrl] = useState();
@@ -114,8 +114,8 @@ function AddDogForm() {
           value={fixed}
           onChange={(e) => setFixed(e.target.value)}
         >
-          <option value="Spayed/Neutered">Yes</option>
-          <option value="Not fixed">No</option>
+          <option value={true}>Yes</option>
+          <option value={false}>No</option>
         </select>
 
         <div className="add-dog-form-title">

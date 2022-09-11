@@ -7,7 +7,15 @@ const PlaydateTooltip = ({ playdate, children }) => {
       {children}
       <div class="playdate-tooltip-content">
         <div className="tooltip-title">Time</div>
-        <div className="tooltip-wrap">{playdate.time}</div>
+        <div className="tooltip-wrap">
+          {new Date(playdate.time).toLocaleString([], {
+            year: "numeric",
+            month: "numeric",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+        </div>
 
         <div className="tooltip-title">Location</div>
         <div className="tooltip-wrap">{playdate.location}</div>
