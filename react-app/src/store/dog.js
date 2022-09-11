@@ -161,6 +161,7 @@ export default function dogRuducer(state = initialState, action) {
       newState = { ...state, myDogs: action.payload };
       return newState;
     case LOAD_DOGS:
+      action.payload.sort((a, b) => (a.id < b.id ? -1 : 1));
       newState = { ...state, dogs: action.payload };
       return newState;
     case CLEAR_CURRENT_DOG:
