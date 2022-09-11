@@ -148,8 +148,11 @@
 .tooltip-wrap {
     max-width: 80%;
     overflow-wrap: break-word;
+    margin-bottom: 5px;
 }
 
 .tooltip-title {
     color: #F47650;
+    font-size: 15px;
+    font-weight: bold;
 }
