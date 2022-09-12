@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Modal } from "../../context/Modal";
 import { editOnePlaydate } from "../../store/playdate";
 import "./NewPlaydate.css";
@@ -16,7 +16,6 @@ const EditPlaydateModal = ({ date }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    debugger;
     const data = await dispatch(
       editOnePlaydate(playdateId, {
         location,
