@@ -18,7 +18,6 @@ const NewPlaydateModal = ({ receiverPetId }) => {
   const myDogs = useSelector((state) => state.dog.myDogs);
 
   const onSubmit = async (e) => {
-    debugger;
     e.preventDefault();
     const data = await dispatch(
       createOnePlaydate({
